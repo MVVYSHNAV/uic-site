@@ -4,7 +4,6 @@ export function ContactSection() {
   return (
     <section className="contact section" id="contact">
       <div className="section-kicker">
-        <span>06 / YOUR NEXT CHAPTER</span>
         <span>START WITH A CONVERSATION.</span>
       </div>
       <div className="contact-grid">

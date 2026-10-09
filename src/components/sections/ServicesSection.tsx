@@ -2,7 +2,6 @@ export function ServicesSection() {
   return (
     <section className="services section" id="services">
       <div className="section-kicker">
-        <span>03 / OUR EXPERTISE</span>
         <span>THE WHOLE PICTURE. EVERY DETAIL.</span>
       </div>
       <div className="services-grid">

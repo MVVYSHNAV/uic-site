@@ -16,9 +16,6 @@ export function CinematicHero() {
     <section ref={storyRef} className="story" id="top" aria-label="From invisible to unforgettable">
       <div ref={stageRef} className="story-stage">
         <div className="grain"></div>
-        <div className="story-label">
-          <span className="live-dot"></span> INDEPENDENT CREATIVE & TECHNOLOGY STUDIO
-        </div>
         <div className="hero-copy">
           <p className="eyebrow">YOU WERE NEVER MEANT TO BLEND IN.</p>
           <h1>

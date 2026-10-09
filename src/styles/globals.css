@@ -952,59 +952,102 @@ details small {
   line-height: 1.8;
 }
 .contact {
-  background: #d9ff65;
+  position: relative;
+  overflow: hidden;
+  background-color: #d6fa59;
+  background-image:
+    radial-gradient(ellipse 75% 65% at 8% 15%, #ffb57e 0%, rgba(255, 181, 126, 0) 55%),
+    radial-gradient(ellipse 70% 60% at 92% 15%, #faa5d8 0%, rgba(250, 165, 216, 0) 50%),
+    radial-gradient(ellipse 80% 70% at 82% 88%, #5ce7c8 0%, rgba(92, 231, 200, 0) 55%),
+    radial-gradient(ellipse 70% 60% at 16% 86%, #b5c7ff 0%, rgba(181, 199, 255, 0) 50%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, #ffe57a 0%, rgba(255, 229, 122, 0) 55%),
+    linear-gradient(135deg, #d3f954 0%, #b7f480 50%, #9bf3c3 100%);
+  color: #17201c;
 }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12%;
 }
+.contact .section-kicker {
+  color: #2b3930;
+  font-weight: 600;
+}
 .contact h2 {
   position: relative;
   font-size: clamp(50px, 5.4vw, 85px);
+  color: #15201b;
+  letter-spacing: -0.02em;
 }
 .big-arrow {
   display: inline-block;
   font-family: sans-serif;
   margin-left: 35px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact h2:hover .big-arrow {
+  transform: translate(6px, -6px);
 }
 .contact-grid > div > p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   margin-top: 30px;
+  color: #2b3930;
+  font-weight: 500;
 }
 .contact label {
   display: block;
   font-size: 11px;
   margin-bottom: 20px;
+  color: #2b3930;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 .contact input,
 .contact select,
 .contact textarea {
   display: block;
   border: 0;
-  border-bottom: 1px solid #869e42;
+  border-bottom: 1.5px solid rgba(23, 32, 28, 0.35);
   background: none;
   width: 100%;
   border-radius: 0;
   padding: 13px 0;
-  color: #202323;
+  color: #15201b;
+  font-size: 14px;
+  font-weight: 500;
   resize: vertical;
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact input:focus,
+.contact select:focus,
+.contact textarea:focus {
+  border-bottom-color: #15201b;
+  outline: none;
 }
 .contact input::placeholder,
 .contact textarea::placeholder {
-  color: #607039;
+  color: rgba(23, 32, 28, 0.52);
   font-size: 13px;
 }
 .contact .pill {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
+  background: #15201b;
+  color: #f6faf2;
+  box-shadow: 0 10px 25px rgba(21, 32, 27, 0.18);
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.contact .pill:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(21, 32, 27, 0.26);
 }
 .form-note {
   font-size: 10px;
   line-height: 1.6;
   margin-top: 15px;
-  color: #4a5a28;
+  color: #2b3930;
 }
 #form-status {
   font-size: 12px;
@@ -1287,7 +1330,7 @@ dialog p {
     letter-spacing: 1px;
     margin-bottom: 40px;
   }
-  .section-kicker > span:last-child {
+  .section-kicker > span:last-child:not(:only-child) {
     text-align: right;
     max-width: 45%;
     line-height: 1.5;

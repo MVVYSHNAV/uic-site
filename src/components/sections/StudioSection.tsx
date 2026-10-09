@@ -2,7 +2,6 @@ export function StudioSection() {
   return (
     <section className="intro section" id="intro">
       <div className="section-kicker">
-        <span>01 / THE STUDIO</span>
         <span>STRATEGY MEETS SOUL.</span>
       </div>
       <div className="intro-grid">

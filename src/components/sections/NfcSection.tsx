@@ -4,7 +4,6 @@ export function NfcSection() {
   return (
     <section className="nfc section" id="nfc">
       <div className="section-kicker">
-        <span>04 / BEYOND THE SCREEN</span>
         <span>SMALL GESTURE. BIG CONNECTION.</span>
       </div>
       <div className="nfc-grid">
@@ -17,7 +16,6 @@ export function NfcSection() {
               <br />
               meet you.
             </strong>
-            <small>UNIQUE IDENTITY. IN YOUR HAND.</small>
             <b>)))</b>
           </div>
           <div className="phone">

@@ -17,7 +17,6 @@ export function PortfolioSection() {
     <>
       <section className="work section" id="work">
         <div className="section-kicker">
-          <span>02 / SELECTED DIRECTIONS</span>
           <span>CONCEPT STUDIES — NOT CLIENT PROJECTS</span>
         </div>
         <div className="section-heading">

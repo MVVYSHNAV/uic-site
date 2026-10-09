@@ -2,7 +2,6 @@ export function ProcessSection() {
   return (
     <section className="process section" id="process">
       <div className="section-kicker">
-        <span>05 / HOW WE GET THERE</span>
         <span>COLLABORATIVE BY DESIGN.</span>
       </div>
       <h2>

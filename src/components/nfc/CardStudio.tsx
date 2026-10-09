@@ -167,9 +167,6 @@ export function CardStudio() {
       </header>
       <main id="card-studio">
         <section className={styles.intro}>
-          <p className={styles.eyebrow}>
-            <span /> YOUR IDENTITY. IN YOUR HAND.
-          </p>
           <h1>
             Small card.
             <br />
