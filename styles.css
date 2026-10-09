@@ -930,33 +930,39 @@ details small {
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: clamp(70px, 8vh, 120px) 7% clamp(60px, 7vh, 100px);
+  padding: clamp(60px, 7vh, 100px) 7% clamp(50px, 6vh, 80px);
 }
 .process .section-kicker {
-  margin-bottom: clamp(25px, 3.5vh, 45px);
+  margin-bottom: clamp(20px, 2.5vh, 35px);
 }
 .process h2 {
-  font-size: clamp(48px, 5.2vw, 84px);
+  font-size: clamp(42px, 4.6vw, 76px);
   line-height: 1.08;
   letter-spacing: -0.025em;
-  margin: 0 0 clamp(40px, 6vh, 80px);
-  max-width: 960px;
+  margin: 0 0 clamp(30px, 4vh, 50px);
+  max-width: 900px;
 }
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(22px, 2.5vw, 45px);
+  gap: clamp(16px, 1.8vw, 28px);
   align-items: stretch;
 }
 .process article {
-  border-top: 1.5px solid #c4c7bd;
-  padding-top: 24px;
+  background: #ffffff;
+  border: 1.5px solid #dce0d4;
+  border-radius: 18px;
+  padding: 24px 20px 24px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+  box-shadow: 0 8px 24px rgba(32, 35, 35, 0.03);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: visible;
 }
 .process article:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 45px rgba(32, 35, 35, 0.09);
   border-color: #202323;
 }
 .process article > span {
@@ -964,19 +970,304 @@ details small {
   letter-spacing: 1.5px;
   font-weight: 700;
   color: var(--muted);
+  display: block;
 }
 .process h3 {
-  font-size: clamp(22px, 1.9vw, 30px);
-  letter-spacing: -0.6px;
-  font-weight: 500;
-  margin: clamp(32px, 4.5vh, 60px) 0 16px;
-  line-height: 1.2;
+  font-size: clamp(19px, 1.5vw, 23px);
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  margin: 14px 0 10px;
+  line-height: 1.25;
 }
 .process p {
-  font-size: clamp(13.5px, 1vw, 15px);
+  font-size: 13px;
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.7;
   margin: 0;
+}
+
+/* 3D Visual Stage */
+.p3d-stage {
+  height: 125px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  perspective: 750px;
+  position: relative;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #ebeee4;
+  padding-bottom: 10px;
+}
+
+/* 01. Discover - 3D Radar / Prism Orb */
+.p3d-radar-plane {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(62deg) rotateZ(0deg);
+  animation: radarSpin 14s linear infinite;
+}
+@keyframes radarSpin {
+  from { transform: rotateX(62deg) rotateZ(0deg); }
+  to { transform: rotateX(62deg) rotateZ(360deg); }
+}
+.p3d-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(32, 35, 35, 0.16);
+  box-sizing: border-box;
+}
+.p3d-ring-2 {
+  inset: 15px;
+  border-color: rgba(32, 35, 35, 0.28);
+  border-style: dashed;
+}
+.p3d-ring-3 {
+  inset: 30px;
+  border-color: #202323;
+}
+.p3d-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 2px;
+  background: linear-gradient(90deg, #202323, #d6fa59);
+  transform-origin: left center;
+  box-shadow: 0 0 10px rgba(214, 250, 89, 0.7);
+}
+.p3d-core-orb {
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #202323;
+  transform: translateZ(14px);
+  box-shadow: 0 4px 12px rgba(32, 35, 35, 0.35);
+  display: grid;
+  place-items: center;
+}
+.p3d-core-orb::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d6fa59;
+}
+.p3d-satellite {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #202323;
+  transform: translateZ(20px);
+  animation: satPulse 3s ease-in-out infinite alternate;
+}
+.p3d-sat-1 { top: 12px; left: 14px; }
+.p3d-sat-2 { bottom: 14px; right: 18px; background: #879955; animation-delay: 1.5s; }
+@keyframes satPulse {
+  from { transform: translateZ(14px) scale(0.9); }
+  to { transform: translateZ(24px) scale(1.2); }
+}
+
+/* 02. Define - 3D Isometric Coordinate Cube */
+.p3d-cube-wrapper {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  transform-style: preserve-3d;
+  animation: floatCube 8s ease-in-out infinite;
+}
+@keyframes floatCube {
+  0%, 100% {
+    transform: rotateX(-22deg) rotateY(32deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(-14deg) rotateY(56deg) translateY(-8px);
+  }
+}
+.process article:hover .p3d-cube-wrapper {
+  animation-duration: 4s;
+}
+.p3d-cube {
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.p3d-face {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border: 1.5px solid rgba(32, 35, 35, 0.22);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #202323;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+}
+.p3d-face-front  { transform: translateZ(27px); background: rgba(255, 255, 255, 0.8); }
+.p3d-face-back   { transform: rotateY(180deg) translateZ(27px); background: rgba(230, 235, 225, 0.5); }
+.p3d-face-top    { transform: rotateX(90deg) translateZ(27px); background: #d6fa59; border-color: rgba(32, 35, 35, 0.4); }
+.p3d-face-bottom { transform: rotateX(-90deg) translateZ(27px); background: rgba(32, 35, 35, 0.12); }
+.p3d-face-left   { transform: rotateY(-90deg) translateZ(27px); background: rgba(240, 244, 236, 0.7); }
+.p3d-face-right  { transform: rotateY(90deg) translateZ(27px); background: #202323; color: #d6fa59; }
+.p3d-cube-shadow {
+  position: absolute;
+  bottom: -18px;
+  left: 6px;
+  width: 48px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(32, 35, 35, 0.22) 0%, transparent 70%);
+  transform: rotateX(80deg);
+}
+
+/* 03. Craft - 3D Layered Glass Stack */
+.p3d-layers-stack {
+  width: 76px;
+  height: 76px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(56deg) rotateZ(-34deg);
+  animation: stackFloat 6s ease-in-out infinite;
+}
+@keyframes stackFloat {
+  0%, 100% {
+    transform: rotateX(56deg) rotateZ(-34deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(50deg) rotateZ(-28deg) translateY(-8px);
+  }
+}
+.p3d-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 11px;
+  border: 1.5px solid rgba(32, 35, 35, 0.2);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  box-sizing: border-box;
+}
+.p3d-layer-1 {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateZ(0px);
+  box-shadow: 0 8px 18px rgba(32, 35, 35, 0.08);
+}
+.p3d-layer-grid {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg, transparent 0 10px, rgba(32, 35, 35, 0.08) 11px),
+              repeating-linear-gradient(90deg, transparent 0 10px, rgba(32, 35, 35, 0.08) 11px);
+  border-radius: inherit;
+}
+.p3d-layer-2 {
+  background: rgba(240, 245, 235, 0.8);
+  transform: translateZ(18px);
+  box-shadow: 0 10px 22px rgba(32, 35, 35, 0.1);
+  padding: 8px;
+}
+.p3d-wire-bar {
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(32, 35, 35, 0.25);
+  margin-bottom: 5px;
+}
+.p3d-wire-bar:nth-child(2) { width: 75%; background: rgba(32, 35, 35, 0.35); }
+.p3d-wire-bar:nth-child(3) { width: 50%; background: #879955; margin-bottom: 0; }
+.p3d-layer-3 {
+  background: #202323;
+  color: #d6fa59;
+  border-color: #202323;
+  transform: translateZ(36px);
+  box-shadow: 0 14px 26px rgba(32, 35, 35, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.process article:hover .p3d-layer-1 { transform: translateZ(-8px); }
+.process article:hover .p3d-layer-2 { transform: translateZ(24px); }
+.process article:hover .p3d-layer-3 {
+  transform: translateZ(52px);
+  box-shadow: 0 20px 34px rgba(32, 35, 35, 0.32);
+}
+
+/* 04. Evolve - 3D Gyroscope Kinetic Orbit */
+.p3d-gyro {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  transform-style: preserve-3d;
+  display: grid;
+  place-items: center;
+}
+.p3d-gyro-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid #202323;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+.p3d-gyro-outer {
+  width: 78px;
+  height: 78px;
+  border-color: rgba(32, 35, 35, 0.28);
+  animation: gyroSpinX 8s linear infinite;
+}
+.p3d-gyro-middle {
+  width: 60px;
+  height: 60px;
+  border-color: #879955;
+  animation: gyroSpinY 6s linear infinite reverse;
+}
+.p3d-gyro-inner {
+  width: 42px;
+  height: 42px;
+  border-color: #202323;
+  border-style: dashed;
+  animation: gyroSpinZ 4s linear infinite;
+}
+.p3d-gyro-nucleus {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #202323;
+  color: #d6fa59;
+  display: grid;
+  place-items: center;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  transform: translateZ(10px);
+  box-shadow: 0 4px 12px rgba(32, 35, 35, 0.28);
+  animation: nucleusPulse 2s ease-in-out infinite alternate;
+}
+@keyframes gyroSpinX {
+  from { transform: rotateX(0deg) rotateY(45deg); }
+  to { transform: rotateX(360deg) rotateY(45deg); }
+}
+@keyframes gyroSpinY {
+  from { transform: rotateY(0deg) rotateX(60deg); }
+  to { transform: rotateY(360deg) rotateX(60deg); }
+}
+@keyframes gyroSpinZ {
+  from { transform: rotateZ(0deg) rotateX(30deg); }
+  to { transform: rotateZ(360deg) rotateX(30deg); }
+}
+@keyframes nucleusPulse {
+  from { transform: translateZ(10px) scale(0.95); }
+  to { transform: translateZ(16px) scale(1.15); box-shadow: 0 6px 18px rgba(214, 250, 89, 0.65); }
 }
 .contact {
   position: relative;
