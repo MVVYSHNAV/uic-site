@@ -1,0 +1,8 @@
+node_modules/
+.migration/
+legacy-backup-*/
+.next/
+out/
+*.tsbuildinfo
+.env*
+!.env.example
