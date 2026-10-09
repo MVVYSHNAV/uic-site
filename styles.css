@@ -966,8 +966,9 @@ details small {
 }
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12%;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 8%;
 }
 .contact .section-kicker {
   color: #2b3930;
@@ -995,17 +996,25 @@ details small {
   color: #2b3930;
   font-weight: 500;
 }
-.contact label {
+.contact form:not([class*="formCard"]) {
+  background: linear-gradient(155deg, #242e27 0%, #161e19 100%);
+  border: 1.5px solid rgba(217, 255, 101, 0.22);
+  border-radius: 20px;
+  padding: 34px 34px 28px;
+  box-shadow: 0 24px 55px rgba(10, 18, 12, 0.35);
+  color: #f2f5ec;
+}
+.contact form:not([class*="formCard"]) label {
   display: block;
   font-size: 11px;
   margin-bottom: 20px;
-  color: #2b3930;
+  color: #a4b3a1;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-.contact input,
-.contact select,
-.contact textarea {
+.contact form:not([class*="formCard"]) input,
+.contact form:not([class*="formCard"]) select,
+.contact form:not([class*="formCard"]) textarea {
   display: block;
   border: 0;
   border-bottom: 1.5px solid rgba(23, 32, 28, 0.35);
@@ -1019,14 +1028,14 @@ details small {
   resize: vertical;
   transition: border-color 0.2s, background 0.2s;
 }
-.contact input:focus,
-.contact select:focus,
-.contact textarea:focus {
+.contact form:not([class*="formCard"]) input:focus,
+.contact form:not([class*="formCard"]) select:focus,
+.contact form:not([class*="formCard"]) textarea:focus {
   border-bottom-color: #15201b;
   outline: none;
 }
-.contact input::placeholder,
-.contact textarea::placeholder {
+.contact form:not([class*="formCard"]) input::placeholder,
+.contact form:not([class*="formCard"]) textarea::placeholder {
   color: rgba(23, 32, 28, 0.52);
   font-size: 13px;
 }

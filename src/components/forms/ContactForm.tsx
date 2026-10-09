@@ -1,73 +1,150 @@
 'use client';
 
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, useRef, type FormEvent } from 'react';
 import { downloadProjectBrief } from '@/lib/project-brief';
+import { FormInput } from './FormInput';
+import { FormTextarea } from './FormTextarea';
+import { ServiceSelector } from './ServiceSelector';
+import styles from './ContactForm.module.css';
+
+const SERVICES = [
+  'Brand & identity',
+  'Websites & experiences',
+  'ERP & business systems',
+  'NFC & connected products',
+  'A little of everything',
+];
+
+interface SubmittedBrief {
+  name: string;
+  email: string;
+  service: string;
+  time: string;
+}
 
 export function ContactForm() {
-  const [status, setStatus] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
+  const [submittedBrief, setSubmittedBrief] = useState<SubmittedBrief | null>(null);
   const [service, setService] = useState('Brand & identity');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     const readInterest = () => setService('NFC & connected products');
     window.addEventListener('uic:interest', readInterest);
     return () => window.removeEventListener('uic:interest', readInterest);
   }, []);
+
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    downloadProjectBrief(new FormData(event.currentTarget));
-    setStatus('Your brief has been downloaded. Nothing has been sent or stored by this site.');
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get('name') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const selectedService = String(formData.get('service') ?? service);
+
+    downloadProjectBrief(formData);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmittedBrief({
+        name,
+        email,
+        service: selectedService,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      });
+    }, 200);
   }
+
+  function handleDownloadAgain() {
+    if (formRef.current) {
+      const formData = new FormData(formRef.current);
+      downloadProjectBrief(formData);
+    }
+  }
+
   return (
-    <form id="contact-form" onSubmit={submit}>
-      <label>
-        Your name
-        <input
+    <form
+      ref={formRef}
+      id="contact-form"
+      className={styles.formCard}
+      onSubmit={submit}
+      aria-label="Prepare project brief"
+    >
+      <div className={styles.cardHeader} aria-hidden="true">
+        <div className={styles.brandMark}>
+          uic<span>®</span>
+        </div>
+        <span className={styles.cardType}>PROJECT BRIEF · INTAKE</span>
+        <span className={styles.signal}>)))</span>
+      </div>
+
+      <div className={styles.row}>
+        <FormInput
           name="name"
+          label="Your name"
+          placeholder="How should we call you?"
           autoComplete="name"
           required
-          placeholder="How should we call you?"
           maxLength={120}
         />
-      </label>
-      <label>
-        Email address
-        <input
+        <FormInput
           name="email"
+          label="Email address"
           type="email"
+          placeholder="Where can we reach you?"
           autoComplete="email"
           required
-          placeholder="Where can we reach you?"
           maxLength={254}
         />
-      </label>
-      <label>
-        What do you have in mind?
-        <select name="service" value={service} onChange={(event) => setService(event.target.value)}>
-          <option>Brand & identity</option>
-          <option>Websites & experiences</option>
-          <option>ERP & business systems</option>
-          <option>NFC & connected products</option>
-          <option>A little of everything</option>
-        </select>
-      </label>
-      <label>
-        A little about your project
-        <textarea
-          name="message"
-          rows={3}
-          required
-          placeholder="Your idea, ambition, or challenge…"
-          maxLength={5000}
-        ></textarea>
-      </label>
-      <button className="pill" type="submit">
-        Prepare project brief <span>↗</span>
+      </div>
+
+      <ServiceSelector
+        name="service"
+        label="What do you have in mind?"
+        options={SERVICES}
+        selected={service}
+        onSelect={setService}
+      />
+
+      <FormTextarea
+        name="message"
+        label="A little about your project"
+        placeholder="Your idea, ambition, timeline, or challenge…"
+        rows={3}
+        required
+        maxLength={5000}
+      />
+
+      <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
+        <span>{isSubmitting ? 'Preparing brief…' : 'Prepare project brief'}</span>
+        <span className={styles.buttonArrow} aria-hidden="true">
+          ↗
+        </span>
       </button>
-      <p className="form-note">
-        Download your brief to share with UIC. Direct enquiries will be enabled when the studio’s
-        contact details are added.
-      </p>
-      <p id="form-status" role="status">
-        {status}
+
+      {submittedBrief ? (
+        <div className={styles.successBanner} role="status">
+          <div className={styles.successHeader}>
+            <span className={styles.successIcon}>✓</span>
+            <span>Project brief generated & downloaded!</span>
+          </div>
+          <div className={styles.successDetails}>
+            Ready to review for <strong>{submittedBrief.name}</strong> ({submittedBrief.email}) with focus on{' '}
+            <em>{submittedBrief.service}</em>.
+          </div>
+          <button
+            type="button"
+            className={styles.downloadAgain}
+            onClick={handleDownloadAgain}
+          >
+            Download again ↗
+          </button>
+        </div>
+      ) : null}
+
+      <p className={styles.note}>
+        Generates an offline project brief text file. No tracking or external servers. Share it with UIC whenever you’re ready to start.
       </p>
     </form>
   );

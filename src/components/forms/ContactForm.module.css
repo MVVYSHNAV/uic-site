@@ -1,0 +1,348 @@
+/* NFC Card-inspired tactile brief card */
+.formCard {
+  background: linear-gradient(155deg, #242e27 0%, #161e19 100%);
+  border: 1.5px solid rgba(217, 255, 101, 0.22);
+  border-radius: 20px;
+  padding: 34px 34px 28px;
+  box-shadow:
+    0 24px 55px rgba(10, 18, 12, 0.35),
+    0 1px 1px rgba(255, 255, 255, 0.08) inset;
+  color: #f2f5ec;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Header mimicking NFC physical card */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brandMark {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #d6fa59;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.brandMark span {
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+.cardType {
+  font-size: 9.5px;
+  letter-spacing: 1.4px;
+  font-weight: 600;
+  color: #9cb19a;
+  text-transform: uppercase;
+}
+
+.signal {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #d6fa59;
+}
+
+/* Two-column layout */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Form fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.labelText {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #a4b3a1;
+}
+
+.optionalTag {
+  font-size: 9px;
+  font-weight: 500;
+  color: #7b8e78;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.charCount {
+  font-size: 10px;
+  font-weight: 500;
+  color: #7b8e78;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Inputs & Textareas — matched perfectly to NFC card aesthetic */
+.input,
+.textarea {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 9px !important;
+  padding: 12px 14px !important;
+  font-size: 13.5px !important;
+  font-family: inherit !important;
+  color: #f2f5ec !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #657563 !important;
+  font-size: 13px !important;
+}
+
+.input:hover,
+.textarea:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(214, 250, 89, 0.35) !important;
+}
+
+.input:focus,
+.textarea:focus {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: #d6fa59 !important;
+  box-shadow: 0 0 0 3px rgba(214, 250, 89, 0.18) !important;
+}
+
+/* Autofill styling fix for Chrome / Edge / Safari */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #212a23 inset !important;
+  -webkit-text-fill-color: #f2f5ec !important;
+  caret-color: #f2f5ec !important;
+  border-color: #d6fa59 !important;
+}
+
+.textarea {
+  min-height: 90px;
+  line-height: 1.6;
+}
+
+/* Service Chips Selector */
+.chipsContainer {
+  margin-bottom: 20px;
+}
+
+.chipsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 3px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  font-size: 12px;
+  font-weight: 500;
+  color: #cdd9c8;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  font-family: inherit;
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(214, 250, 89, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.chipActive {
+  background: #d6fa59;
+  color: #141c18;
+  border-color: #d6fa59;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(214, 250, 89, 0.25);
+}
+
+.chipActive:hover {
+  background: #e4ff74;
+  border-color: #e4ff74;
+  color: #141c18;
+}
+
+.chipDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.chipActive .chipDot {
+  background: #141c18;
+  transform: scale(1.2);
+}
+
+/* Submit Button */
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #d6fa59;
+  color: #141c18;
+  border: 0;
+  border-radius: 30px;
+  padding: 16px 24px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(214, 250, 89, 0.22);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.submitButton:hover {
+  background: #e4ff74;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(214, 250, 89, 0.32);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.buttonArrow {
+  font-size: 16px;
+  font-weight: 800;
+  transition: transform 0.22s ease;
+}
+
+.submitButton:hover .buttonArrow {
+  transform: translate(3px, -3px);
+}
+
+/* Form Footer Notes */
+.note {
+  font-size: 10.5px;
+  line-height: 1.6;
+  margin-top: 14px;
+  color: #7d907a;
+}
+
+/* Success Card */
+.successBanner {
+  background: rgba(214, 250, 89, 0.12);
+  border: 1.5px solid #d6fa59;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+.successHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d6fa59;
+}
+
+.successIcon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d6fa59;
+  color: #141c18;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.successDetails {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #d4e0ce;
+}
+
+.downloadAgain {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid rgba(214, 250, 89, 0.5);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #d6fa59;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.downloadAgain:hover {
+  background: #d6fa59;
+  color: #141c18;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .formCard {
+    padding: 26px 20px 22px;
+    border-radius: 16px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
