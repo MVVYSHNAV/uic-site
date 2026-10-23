@@ -1,42 +1,61 @@
-const story = document.querySelector('.story');
-const stage = document.querySelector('.story-stage');
+const story = document.querySelector('.hero-portal, .story');
+const stage = document.querySelector('.portal-stage, .story-stage');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = (n, min = 0, max = 1) => Math.min(max, Math.max(min, n));
 let scheduled = false;
+
 function paintStory() {
   scheduled = false;
-  const p = reduced.matches
-    ? 0
-    : clamp(-story.getBoundingClientRect().top / (story.offsetHeight - innerHeight));
-  const rise = clamp((p - 0.08) / 0.22),
-    world = clamp((p - 0.28) / 0.28),
-    chapter = clamp((p - 0.43) / 0.18),
-    walk = clamp((p - 0.3) / 0.4);
-  const values = {
-    '--p': p,
-    '--hero-opacity': 1 - clamp((p - 0.2) / 0.18),
-    '--hero-y': `${-p * 65}px`,
-    '--rise': `${-rise * 65}px`,
-    '--chair-opacity': 1 - rise,
-    '--human-x': `${walk * (innerWidth < 700 ? 65 : 150)}px`,
-    '--human-scale': 1 - walk * 0.18,
-    '--human-opacity': 1 - clamp((p - 0.55) / 0.2),
-    '--leg-left': `${rise * -22 + Math.sin(walk * 14) * walk * 12}deg`,
-    '--leg-right': `${rise * 24 - Math.sin(walk * 14) * walk * 12}deg`,
-    '--world-opacity': world,
-    '--portal-scale': 0.8 + world * 0.2,
-    '--card-y': `${(1 - world) * 80}px`,
-    '--spot-opacity': 1 - world * 0.7,
-    '--chapter-opacity': chapter,
-    '--chapter-y': `${(1 - chapter) * 30}px`,
-    '--chapter-events': chapter > 0.8 ? 'auto' : 'none',
-  };
-  for (const [key, value] of Object.entries(values)) stage.style.setProperty(key, value);
-  document.querySelector('.chapter-number').textContent =
-    p > 0.45 ? '02 — THE TRANSFORMATION' : '01 — THE POSSIBILITY';
-  document.querySelector('.chapter-copy').inert = chapter < 0.8;
-  document.querySelector('.hero-copy').setAttribute('aria-hidden', String(p > 0.4));
+  if (!story || !stage) return;
+  const rect = story.getBoundingClientRect();
+  const distance = Math.max(1, story.offsetHeight - innerHeight);
+  const isReduced = reduced.matches;
+  const p = isReduced ? 1 : clamp(-rect.top / distance);
+
+  const vw = innerWidth;
+  const vh = innerHeight;
+  const isMobile = vw < 768;
+  const isTablet = vw >= 768 && vw < 1200;
+
+  const openProgress = isReduced ? 1 : clamp(p / 0.85);
+  const panelSlide = openProgress * 102;
+  const photoScale = isReduced ? 1.0 : 1.14 - 0.14 * clamp(p / 0.9);
+  const washOpacity = isReduced ? 0.75 : clamp(p / 0.75) * 0.75;
+  const wmScale = isReduced ? 1.06 : 1.0 + 0.09 * openProgress;
+  const wmSpacing = isReduced ? -0.03 : 0.02 - 0.06 * openProgress;
+
+  const splitMax = isMobile ? 36 : isTablet ? 85 : 140;
+  const splitX = isReduced ? (isMobile ? 18 : 60) : openProgress * splitMax;
+
+  const spreadX = vw * (isMobile ? 0.36 : 0.42);
+  const spreadY = vh * (isMobile ? 0.32 : 0.38);
+  const dotAmberX = isReduced ? -spreadX : -openProgress * spreadX;
+  const dotAmberY = isReduced ? -spreadY : -openProgress * spreadY;
+  const dotTealX = isReduced ? spreadX : openProgress * spreadX;
+  const dotTealY = isReduced ? spreadY : openProgress * spreadY;
+
+  const contentOpacity = isReduced ? 1 : clamp(0.2 + openProgress * 0.8);
+  const contentY = isReduced ? 0 : (1 - openProgress) * 16;
+  const hintOpacity = isReduced ? 0 : Math.max(0, 1 - p * 3.0);
+
+  stage.style.setProperty('--p', p);
+  stage.style.setProperty('--open-p', openProgress);
+  stage.style.setProperty('--panel-left', `${panelSlide}%`);
+  stage.style.setProperty('--panel-right', `${panelSlide}%`);
+  stage.style.setProperty('--photo-scale', photoScale);
+  stage.style.setProperty('--wash-opacity', washOpacity);
+  stage.style.setProperty('--wm-scale', wmScale);
+  stage.style.setProperty('--wm-spacing', `${wmSpacing.toFixed(4)}em`);
+  stage.style.setProperty('--split-x', `${splitX.toFixed(1)}px`);
+  stage.style.setProperty('--dot-amber-x', `${dotAmberX.toFixed(1)}px`);
+  stage.style.setProperty('--dot-amber-y', `${dotAmberY.toFixed(1)}px`);
+  stage.style.setProperty('--dot-teal-x', `${dotTealX.toFixed(1)}px`);
+  stage.style.setProperty('--dot-teal-y', `${dotTealY.toFixed(1)}px`);
+  stage.style.setProperty('--content-opacity', contentOpacity);
+  stage.style.setProperty('--content-y', `${contentY.toFixed(1)}px`);
+  stage.style.setProperty('--hint-opacity', hintOpacity);
 }
+
 addEventListener(
   'scroll',
   () => {
@@ -50,13 +69,11 @@ addEventListener(
 addEventListener('resize', paintStory);
 reduced.addEventListener('change', paintStory);
 paintStory();
-document
-  .querySelector('.skip-story')
-  .addEventListener('click', () =>
-    document
-      .querySelector('#intro')
-      .scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth' }),
-  );
+
+document.querySelector('.portal-bottom-link, .skip-story')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('#intro')?.scrollIntoView({ behavior: reduced.matches ? 'instant' : 'smooth' });
+});
 const toggle = document.querySelector('.menu-toggle'),
   nav = document.querySelector('#navigation');
 toggle.addEventListener('click', () => {

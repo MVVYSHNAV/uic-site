@@ -26,77 +26,89 @@
       </nav>
     </header>
     <main id="main">
-      <section class="story" id="top" aria-label="From invisible to unforgettable">
-        <div class="story-stage">
-          <div class="grain"></div>
-          <div class="hero-copy">
-            <p class="eyebrow">YOU WERE NEVER MEANT TO BLEND IN.</p>
-            <h1>Make your<br />presence <em>felt.</em></h1>
-            <p>We turn what makes you different into<br />something the world can’t ignore.</p>
+      <section class="hero-portal" id="top" aria-label="UIC Studio — Unique Identity Creation">
+        <div class="portal-stage">
+          <!-- 1. Cinematic Hero Photograph Layer -->
+          <div class="portal-photo-layer" aria-hidden="true">
+            <img
+              src="/images/projects/ds_gal.jpg"
+              alt="UIC Studio Space"
+              class="portal-photo"
+              loading="eager"
+            />
+            <div class="portal-wash"></div>
+            <div class="portal-vignette"></div>
+            <div class="portal-grain"></div>
           </div>
-          <div class="scene" aria-hidden="true">
-            <div class="spotlight"></div>
-            <div class="portal">
-              <div class="portal-core"></div>
-              <span>YOUR NEXT CHAPTER</span>
+
+          <!-- 2. Two Opaque Dark Panels meeting precisely at the centre -->
+          <div class="portal-panel portal-panel-left" aria-hidden="true"></div>
+          <div class="portal-panel portal-panel-right" aria-hidden="true"></div>
+
+          <!-- 3. Tiny Accent Dots moving from centre toward opposite corners -->
+          <div class="portal-dots-layer" aria-hidden="true">
+            <div class="portal-dot portal-dot-amber"></div>
+            <div class="portal-dot portal-dot-teal"></div>
+          </div>
+
+          <!-- 4. Fine Hairline Editorial Frame & Corner Metadata -->
+          <div class="portal-frame" aria-hidden="true">
+            <div class="portal-frame-top">
+              <span class="portal-meta">INDEPENDENT DESIGN STUDIO</span>
+              <span class="portal-meta">01 / UIC</span>
             </div>
-            <div class="floor"></div>
-            <svg class="human" viewBox="0 0 300 400">
-              <defs>
-                <linearGradient id="body" x1="0" x2="1">
-                  <stop stop-color="#52565c" />
-                  <stop offset=".5" stop-color="#c1c4c7" />
-                  <stop offset="1" stop-color="#31343a" />
-                </linearGradient>
-              </defs>
-              <ellipse class="shadow" cx="150" cy="370" rx="90" ry="11" fill="#000" opacity=".65" />
-              <g class="chair" stroke="#606269" stroke-width="5" fill="none">
-                <path d="M100 235V330M100 290H205V350M110 295L100 370M190 300L205 370" />
-              </g>
-              <g class="person">
-                <ellipse cx="150" cy="108" rx="24" ry="30" fill="url(#body)" />
-                <path
-                  class="torso"
-                  d="M132 141 Q150 131 168 142 L184 230 Q153 251 117 231Z"
-                  fill="url(#body)"
-                />
-                <path class="arm left" d="M131 153 Q111 181 111 217 L138 239" />
-                <path class="arm right" d="M170 153 Q185 186 187 216 L163 238" />
-                <path class="leg left" d="M133 231 L158 286 L124 347 L102 351" />
-                <path class="leg right" d="M162 235 L200 285 L196 353 L218 357" />
-              </g>
-            </svg>
-            <div class="world-card web-card">
-              <div class="card-top"><span>◉</span> WEB EXPERIENCES <span>↗</span></div>
-              <strong>Ideas.<br />Made tangible.</strong>
-              <div class="mini-orbit"></div>
-              <small>DIGITAL FLAGSHIP / 01</small>
+            <div class="portal-frame-hairline"></div>
+          </div>
+
+          <!-- 5. Center Composition: Wordmark & Supporting Editorial Content -->
+          <div class="portal-center">
+            <div class="portal-wordmark" aria-label="UIC STUDIO.">
+              <span class="wordmark-part wordmark-uic">UIC</span>
+              <span class="wordmark-divider" aria-hidden="true">&nbsp;</span>
+              <span class="wordmark-part wordmark-studio">STUDIO.</span>
             </div>
-            <div class="world-card erp-card">
-              <div class="card-top">CONNECTED BUSINESS <span>↗</span></div>
-              <div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <strong>Less friction.<br />More flow.</strong><small>ERP & AUTOMATION / 02</small>
-            </div>
-            <div class="world-card brand-card">
-              <small>IDENTITY SYSTEMS / 03</small><strong>Different<br />by design.</strong
-              ><span class="brand-symbol">✳</span>
+
+            <div class="portal-editorial">
+              <p class="portal-label">UNIQUE IDENTITY CREATION</p>
+              <h1 class="portal-headline">Make your presence felt.</h1>
+              <p class="portal-desc">
+                Distinctive websites. Remarkable identities. Connections that start with a tap.
+              </p>
+              <div class="portal-actions">
+                <a href="#contact" class="portal-cta">
+                  Let’s create your identity <span class="cta-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="chapter-copy">
-            <span class="eyebrow">A NEW WORLD OF POSSIBILITY</span>
-            <h2>Your identity.<br /><em>In full color.</em></h2>
-            <p>
-              Brand. Digital. Systems. Real-world connections.<br />One distinctive presence,
-              everywhere it matters.
-            </p>
-            <a class="text-link" href="#work">Explore what we craft ↘</a>
+
+          <!-- 6. Bottom Navigation Bar -->
+          <div class="portal-bottom">
+            <a href="#intro" class="portal-bottom-link" aria-label="Explore the studio">
+              Explore the studio <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+
+            <div class="portal-scroll-hint" aria-hidden="true">
+              <span class="scroll-hint-bar"></span>
+              <span class="scroll-hint-text">Scroll to open</span>
+            </div>
+
+            <div class="portal-bottom-code" aria-hidden="true">
+              <span>UNIQUE IDENTITY CRAFTING</span>
+            </div>
           </div>
-          <div class="story-bottom">
-            <a href="#intro">SCROLL TO DISCOVER <span>↓</span></a
-            ><span class="chapter-number">01 — THE POSSIBILITY</span
-            ><button class="skip-story" type="button">Skip intro ↘</button>
-          </div>
-          <div class="story-progress"></div>
+
+          <noscript>
+            <style>
+              .portal-panel { display: none !important; }
+              .portal-photo { transform: scale(1) !important; }
+              .portal-wash { opacity: 0.75 !important; }
+              .portal-editorial { opacity: 1 !important; transform: none !important; }
+              .portal-scroll-hint { display: none !important; }
+              .wordmark-uic { transform: translateX(-30px) !important; }
+              .wordmark-studio { transform: translateX(30px) !important; }
+            </style>
+          </noscript>
         </div>
       </section>
       <section class="intro section" id="intro">
