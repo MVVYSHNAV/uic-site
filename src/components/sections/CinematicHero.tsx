@@ -24,10 +24,10 @@ export function CinematicHero() {
       aria-label="UIC Studio — Unique Identity Creation"
     >
       <div ref={stageRef} className="portal-stage">
-        {/* 1. Cinematic Hero Photograph Layer */}
+        {/* 1. Cinematic Hero Photograph Layer (Deep Ambient Continuum) */}
         <div className="portal-photo-layer" aria-hidden="true">
           <img
-            src="/images/projects/ds_gal.jpg"
+            src="/images/hero-fashion-split.jpg"
             alt="UIC Studio Space"
             className="portal-photo"
             loading="eager"
@@ -41,22 +41,39 @@ export function CinematicHero() {
           <div className="portal-grain" />
         </div>
 
-        {/* 2. Two Opaque Dark Panels meeting precisely at the centre */}
-        <div className="portal-panel portal-panel-left" aria-hidden="true" />
-        <div className="portal-panel portal-panel-right" aria-hidden="true" />
-
-        {/* 3. Tiny Accent Dots moving from centre toward opposite corners */}
-        <div className="portal-dots-layer" aria-hidden="true">
-          <div className="portal-dot portal-dot-amber" />
-          <div className="portal-dot portal-dot-teal" />
+        {/* 2. Split Screen Image Panels with Blended Fashion Image that splits on scroll */}
+        <div className="portal-panel portal-panel-left" aria-hidden="true">
+          <div className="portal-panel-inner">
+            <img
+              src="/images/hero-fashion-split.jpg"
+              alt="UIC Studio Space - Left Half"
+              className="portal-split-photo portal-split-photo-left"
+              loading="eager"
+              decoding="async"
+            />
+            {/* Blended Scrim & Studio Tone Overlays */}
+            <div className="portal-split-scrim portal-split-scrim-left" />
+            <div className="portal-split-wash portal-split-wash-amber" />
+          </div>
         </div>
 
-        {/* 4. Fine Hairline Editorial Frame & Corner Metadata */}
-        <div className="portal-frame" aria-hidden="true">
-          <div className="portal-frame-top">
-            <span className="portal-meta">INDEPENDENT DESIGN STUDIO</span>
-            <span className="portal-meta">01 / UIC</span>
+        <div className="portal-panel portal-panel-right" aria-hidden="true">
+          <div className="portal-panel-inner">
+            <img
+              src="/images/hero-fashion-split.jpg"
+              alt="UIC Studio Space - Right Half"
+              className="portal-split-photo portal-split-photo-right"
+              loading="eager"
+              decoding="async"
+            />
+            {/* Blended Scrim & Studio Tone Overlays */}
+            <div className="portal-split-scrim portal-split-scrim-right" />
+            <div className="portal-split-wash portal-split-wash-teal" />
           </div>
+        </div>
+
+        {/* 4. Fine Hairline Editorial Frame */}
+        <div className="portal-frame" aria-hidden="true">
           <div className="portal-frame-hairline" />
         </div>
 
@@ -80,7 +97,22 @@ export function CinematicHero() {
             </p>
             <div className="portal-actions">
               <a href="#contact" className="portal-cta">
-                Let’s create your identity <span className="cta-arrow" aria-hidden="true">↗</span>
+                Let’s create your identity{' '}
+                <svg
+                  className="cta-arrow"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                  <polyline points="9 6 18 6 18 15" />
+                </svg>
               </a>
             </div>
           </div>
@@ -94,16 +126,27 @@ export function CinematicHero() {
             onClick={scrollToStudio}
             aria-label="Explore the studio"
           >
-            Explore the studio <span className="arrow" aria-hidden="true">↓</span>
+            Explore the studio{' '}
+            <svg
+              className="arrow"
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <polyline points="19 12 12 19 5 12" />
+            </svg>
           </a>
 
           <div className="portal-scroll-hint" aria-hidden="true">
             <span className="scroll-hint-bar" />
             <span className="scroll-hint-text">Scroll to open</span>
-          </div>
-
-          <div className="portal-bottom-code" aria-hidden="true">
-            <span>UNIQUE IDENTITY CRAFTING</span>
           </div>
         </div>
 

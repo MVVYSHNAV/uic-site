@@ -65,7 +65,15 @@ export function ProcessSection() {
               </div>
               <div className="p3d-layer p3d-layer-3">
                 <span>UI/UX</span>
-                <span>✦</span>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                </svg>
               </div>
             </div>
           </div>
@@ -81,7 +89,21 @@ export function ProcessSection() {
               <div className="p3d-gyro-ring p3d-gyro-middle"></div>
               <div className="p3d-gyro-ring p3d-gyro-inner"></div>
               <div className="p3d-gyro-nucleus">
-                <span>)))</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M8.5 5A12 12 0 0 1 8.5 19" />
+                  <path d="M12.5 8A7.5 7.5 0 0 1 12.5 16" />
+                  <path d="M16.5 10.5A3.5 3.5 0 0 1 16.5 13.5" />
+                </svg>
               </div>
             </div>
           </div>

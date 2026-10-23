@@ -28,10 +28,10 @@
     <main id="main">
       <section class="hero-portal" id="top" aria-label="UIC Studio — Unique Identity Creation">
         <div class="portal-stage">
-          <!-- 1. Cinematic Hero Photograph Layer -->
+          <!-- 1. Cinematic Hero Photograph Layer (Deep Ambient Continuum) -->
           <div class="portal-photo-layer" aria-hidden="true">
             <img
-              src="/images/projects/ds_gal.jpg"
+              src="/images/hero-fashion-split.jpg"
               alt="UIC Studio Space"
               class="portal-photo"
               loading="eager"
@@ -41,14 +41,30 @@
             <div class="portal-grain"></div>
           </div>
 
-          <!-- 2. Two Opaque Dark Panels meeting precisely at the centre -->
-          <div class="portal-panel portal-panel-left" aria-hidden="true"></div>
-          <div class="portal-panel portal-panel-right" aria-hidden="true"></div>
-
-          <!-- 3. Tiny Accent Dots moving from centre toward opposite corners -->
-          <div class="portal-dots-layer" aria-hidden="true">
-            <div class="portal-dot portal-dot-amber"></div>
-            <div class="portal-dot portal-dot-teal"></div>
+          <!-- 2. Split Screen Image Panels with Blended Fashion Image that splits on scroll -->
+          <div class="portal-panel portal-panel-left" aria-hidden="true">
+            <div class="portal-panel-inner">
+              <img
+                src="/images/hero-fashion-split.jpg"
+                alt="UIC Studio Space - Left Half"
+                class="portal-split-photo portal-split-photo-left"
+                loading="eager"
+              />
+              <div class="portal-split-scrim portal-split-scrim-left"></div>
+              <div class="portal-split-wash portal-split-wash-amber"></div>
+            </div>
+          </div>
+          <div class="portal-panel portal-panel-right" aria-hidden="true">
+            <div class="portal-panel-inner">
+              <img
+                src="/images/hero-fashion-split.jpg"
+                alt="UIC Studio Space - Right Half"
+                class="portal-split-photo portal-split-photo-right"
+                loading="eager"
+              />
+              <div class="portal-split-scrim portal-split-scrim-right"></div>
+              <div class="portal-split-wash portal-split-wash-teal"></div>
+            </div>
           </div>
 
           <!-- 4. Fine Hairline Editorial Frame & Corner Metadata -->

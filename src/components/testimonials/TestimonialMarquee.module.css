@@ -1,0 +1,240 @@
+/* ========================================================
+   SELF-CONTAINED TESTIMONIAL MARQUEE COMPONENT
+   ======================================================== */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding: clamp(32px, 5vh, 64px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* The edge fade is a mask so it works over any background
+   rather than being a gradient overlay matched to one */
+.maskViewport {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.2vw, 24px);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 8%,
+    rgba(0, 0, 0, 1) 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 8%,
+    rgba(0, 0, 0, 1) 92%,
+    transparent 100%
+  );
+}
+
+/* Row & Continuous Infinite Track */
+.row {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(16px, 1.8vw, 22px);
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row 1 scrolls left */
+.scrollLeft {
+  animation: marqueeLeft 42s linear infinite;
+}
+
+/* Row 2 scrolls right */
+.scrollRight {
+  animation: marqueeRight 44s linear infinite;
+}
+
+/* Pause on hover */
+.row:hover .track {
+  animation-play-state: paused;
+}
+
+/* Seamless -50% translation loop */
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Sets of cards */
+.cardSet {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(16px, 1.8vw, 22px);
+  flex-shrink: 0;
+}
+
+/* Compact Card Styling — Works over any background */
+.card {
+  width: clamp(280px, 26vw, 350px);
+  flex: 0 0 clamp(280px, 26vw, 350px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+/* Card Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #101512;
+  background: #f0eee6;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.name {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #161e1b;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  color: #00dc4c;
+  flex-shrink: 0;
+}
+
+.role {
+  font-size: 11px;
+  color: #6a746e;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Quote */
+.quote {
+  font-family: Georgia, 'Playfair Display', serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #242c28;
+  margin: 0 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', 'Space Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #727c76;
+}
+
+.accentDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #202323;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .scrollLeft,
+  .scrollRight {
+    animation-play-state: paused;
+  }
+  .row {
+    overflow-x: auto;
+  }
+}
