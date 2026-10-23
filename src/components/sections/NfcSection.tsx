@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { NfcContactLink } from '@/components/forms/NfcContactLink';
 
 export function NfcSection() {
@@ -68,10 +69,19 @@ export function NfcSection() {
             A beautifully crafted NFC card. A personal digital profile. A seamless way to share your
             world — without an app.
           </p>
-          <ul>
-            <li>Your identity, on your terms</li>
-            <li>Update your details without reprinting</li>
-            <li>NFC with a QR fallback for easy access</li>
+          <ul className="nfc-feature-list">
+            <li>
+              <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
+              <span>Your identity, on your terms</span>
+            </li>
+            <li>
+              <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
+              <span>Update your details without reprinting</span>
+            </li>
+            <li>
+              <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
+              <span>NFC with a QR fallback for easy access</span>
+            </li>
           </ul>
           <NfcContactLink />
         </div>

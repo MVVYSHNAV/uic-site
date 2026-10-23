@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { TestimonialMarquee } from '@/components/testimonials/TestimonialMarquee';
 
@@ -24,7 +25,9 @@ export function ContactSection() {
               <br />
               unmistakable.
             </em>
-            <span className="big-arrow">↗</span>
+            <span className="big-arrow" aria-hidden="true">
+              <ArrowUpRight strokeWidth={1.8} />
+            </span>
           </h2>
           <p>
             Tell us what you’re imagining.

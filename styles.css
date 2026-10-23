@@ -1511,12 +1511,18 @@ details small {
   padding: 0;
   list-style: none;
   font-size: 12px;
-  line-height: 2.5;
+  line-height: 2.3;
   margin-top: 25px;
 }
-.nfc li:before {
-  content: '↗';
-  margin-right: 15px;
+.nfc li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nfc li svg {
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.8;
 }
 .tap-visual {
   height: 450px;
@@ -2019,10 +2025,19 @@ details small {
   letter-spacing: -0.02em;
 }
 .big-arrow {
-  display: inline-block;
-  font-family: sans-serif;
-  margin-left: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: clamp(14px, 2vw, 32px);
+  vertical-align: 0.08em;
+  color: inherit;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.big-arrow svg {
+  width: 0.72em;
+  height: 0.72em;
+  display: block;
+  stroke: currentColor;
 }
 .contact h2:hover .big-arrow {
   transform: translate(6px, -6px);

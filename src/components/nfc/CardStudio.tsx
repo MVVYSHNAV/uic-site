@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { ArrowUpRight, RotateCw, Check } from 'lucide-react';
 import styles from './CardStudio.module.css';
 
 const finishes = [
@@ -161,8 +162,9 @@ export function CardStudio() {
           uic<span>®</span>
         </Link>
         <span className={styles.productName}>CONNECT / A BETTER HELLO</span>
-        <Link href="/#nfc" className={styles.back}>
-          Back to studio ↗
+        <Link href="/#nfc" className={styles.back} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+          <span>Back to studio</span>
+          <ArrowUpRight size={13} strokeWidth={2.2} aria-hidden="true" />
         </Link>
       </header>
       <main id="card-studio">
@@ -230,7 +232,7 @@ export function CardStudio() {
                     <br />A whole new connection.
                   </strong>
                   <span className={styles.reverseMark} aria-hidden="true">
-                    ↗
+                    <ArrowUpRight size={48} strokeWidth={1.8} />
                   </span>
                   <span className={styles.cardFooter}>
                     HOLD NEAR AN NFC-ENABLED PHONE.<b>uic / connect</b>
@@ -239,8 +241,13 @@ export function CardStudio() {
               </button>
             </div>
             <div className={styles.previewBottom}>
-              <button className={styles.flipButton} onClick={() => setFlipped(!flipped)}>
-                ↻ {flipped ? 'View front' : 'Flip card'}
+              <button
+                className={styles.flipButton}
+                onClick={() => setFlipped(!flipped)}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
+                <RotateCw size={13} strokeWidth={2.2} />
+                <span>{flipped ? 'View front' : 'Flip card'}</span>
               </button>
               <span>
                 {finish.name} / {layout}
@@ -275,7 +282,11 @@ export function CardStudio() {
                     }}
                     style={{ background: option.background, color: option.ink }}
                   >
-                    {finish.name === option.name ? '✓' : ''}
+                    {finish.name === option.name ? (
+                      <Check size={14} strokeWidth={2.6} />
+                    ) : (
+                      ''
+                    )}
                   </button>
                 ))}
               </div>
@@ -487,8 +498,22 @@ export function CardStudio() {
                 </div>
               </li>
             </ol>
-            <button className={styles.demoButton} onClick={() => setConnected(!connected)}>
-              {connected ? 'Reset the demo ↻' : 'Try a virtual tap ↗'}
+            <button
+              className={styles.demoButton}
+              onClick={() => setConnected(!connected)}
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+            >
+              {connected ? (
+                <>
+                  <span>Reset the demo</span>
+                  <RotateCw size={14} strokeWidth={2.2} />
+                </>
+              ) : (
+                <>
+                  <span>Try a virtual tap</span>
+                  <ArrowUpRight size={14} strokeWidth={2.2} />
+                </>
+              )}
             </button>
             <p className={styles.demoNote}>
               Interactive simulation. No NFC hardware required here.
@@ -508,14 +533,26 @@ export function CardStudio() {
               </div>
               {connected ? (
                 <div className={styles.profile} key="profile">
-                  <span className={styles.connectedBadge}>✓ CONNECTION MADE</span>
+                  <span className={styles.connectedBadge} style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                    <Check size={12} strokeWidth={2.8} />
+                    <span>CONNECTION MADE</span>
+                  </span>
                   <div className={styles.avatar}>{initials}</div>
                   <h3>{displayName}</h3>
                   <p>{role}</p>
                   <span className={styles.profileBrand}>{displayBrand}</span>
-                  <div className={styles.profileButton}>Save contact ↗</div>
-                  <div className={styles.profileLink}>Explore my work ↗</div>
-                  <div className={styles.profileLink}>Let’s connect ↗</div>
+                  <div className={styles.profileButton} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                    <span>Save contact</span>
+                    <ArrowUpRight size={12} strokeWidth={2.2} />
+                  </div>
+                  <div className={styles.profileLink} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                    <span>Explore my work</span>
+                    <ArrowUpRight size={12} strokeWidth={2.2} />
+                  </div>
+                  <div className={styles.profileLink} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+                    <span>Let’s connect</span>
+                    <ArrowUpRight size={12} strokeWidth={2.2} />
+                  </div>
                   <small>PROFILE PREVIEW · POWERED BY UIC</small>
                 </div>
               ) : (
@@ -551,8 +588,13 @@ export function CardStudio() {
             <br />
             We’ll help with artwork, card options, and your digital profile.
           </p>
-          <Link href="/#contact" className={styles.demoButton}>
-            Let’s create your card ↗
+          <Link
+            href="/#contact"
+            className={styles.demoButton}
+            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+          >
+            <span>Let’s create your card</span>
+            <ArrowUpRight size={14} strokeWidth={2.2} />
           </Link>
         </section>
       </main>
@@ -561,7 +603,10 @@ export function CardStudio() {
           uic<span>®</span>
         </Link>
         <span>UNIQUE IDENTITY. EVERY CONNECTION.</span>
-        <Link href="/">Back to UIC ↗</Link>
+        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+          <span>Back to UIC</span>
+          <ArrowUpRight size={13} strokeWidth={2.2} />
+        </Link>
       </footer>
     </div>
   );

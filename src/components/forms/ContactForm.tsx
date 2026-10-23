@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, type FormEvent } from 'react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { downloadProjectBrief } from '@/lib/project-brief';
 import { FormInput } from './FormInput';
 import { FormTextarea } from './FormTextarea';
@@ -119,14 +120,16 @@ export function ContactForm() {
       <button className={styles.submitButton} type="submit" disabled={isSubmitting}>
         <span>{isSubmitting ? 'Preparing brief…' : 'Prepare project brief'}</span>
         <span className={styles.buttonArrow} aria-hidden="true">
-          ↗
+          <ArrowUpRight size={17} strokeWidth={2.4} />
         </span>
       </button>
 
       {submittedBrief ? (
         <div className={styles.successBanner} role="status">
           <div className={styles.successHeader}>
-            <span className={styles.successIcon}>✓</span>
+            <span className={styles.successIcon}>
+              <Check size={12} strokeWidth={3} />
+            </span>
             <span>Project brief generated & downloaded!</span>
           </div>
           <div className={styles.successDetails}>
@@ -138,7 +141,7 @@ export function ContactForm() {
             className={styles.downloadAgain}
             onClick={handleDownloadAgain}
           >
-            Download again ↗
+            Download again <ArrowUpRight size={13} strokeWidth={2.2} style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
           </button>
         </div>
       ) : null}

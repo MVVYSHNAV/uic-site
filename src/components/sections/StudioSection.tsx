@@ -1,3 +1,5 @@
+import { ArrowUpRight } from 'lucide-react';
+
 export function StudioSection() {
   return (
     <section className="intro section" id="intro">
@@ -24,8 +26,9 @@ export function StudioSection() {
             We’re UIC. A creative and technology studio bringing brands, digital experiences and
             business systems together — with intention, craft and a little audacity.
           </p>
-          <a className="text-link" href="#services">
-            Meet your unfair advantage <span>↗</span>
+          <a className="text-link" href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <span>Meet your unfair advantage</span>
+            <ArrowUpRight size={15} strokeWidth={2.2} aria-hidden="true" />
           </a>
         </div>
       </div>
