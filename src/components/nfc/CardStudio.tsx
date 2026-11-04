@@ -8,8 +8,8 @@ import styles from './CardStudio.module.css';
 const finishes = [
   { name: 'Midnight', background: '#222b28', ink: '#e3ff97' },
   { name: 'Lime', background: '#d9ff65', ink: '#203027' },
-  { name: 'Pearl', background: '#ede9df', ink: '#343b35' },
-  { name: 'Lavender', background: '#c7bcf1', ink: '#302647' },
+  { name: 'Bone', background: '#ede9df', ink: '#203027' },
+  { name: 'Obsidian', background: '#121614', ink: '#ede7dc' },
 ];
 const layouts = ['Minimal', 'Orbit', 'Statement'] as const;
 type Layout = (typeof layouts)[number];

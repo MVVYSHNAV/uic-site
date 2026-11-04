@@ -1,8 +1,31 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { TestimonialMarquee } from '@/components/testimonials/TestimonialMarquee';
 
+const GREETINGS = [
+  { id: 'en', word: 'Hi.' },
+  { id: 'kn', word: 'ನಮಸ್ಕಾರ.' },
+  { id: 'hi', word: 'नमस्ते.' },
+  { id: 'ml', word: 'നമസ്കാരം.' },
+  { id: 'ta', word: 'வணக்கம்.' },
+  { id: 'te', word: 'నమస్కారం.' },
+];
+
 export function ContactSection() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % GREETINGS.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const current = GREETINGS[index];
+
   return (
     <section className="contact section" id="contact">
       <div className="section-kicker" style={{ marginBottom: '24px' }}>
@@ -16,24 +39,17 @@ export function ContactSection() {
         <span>START WITH A CONVERSATION.</span>
       </div>
       <div className="contact-grid">
-        <div>
+        <div className="contact-headline-col">
           <h2>
-            Let’s make
-            <br />
-            <em>
-              something
-              <br />
-              unmistakable.
-            </em>
+            <span className="contact-greeting-wrapper">
+              <em key={current.id} className="contact-greeting-rotator">
+                {current.word}
+              </em>
+            </span>
             <span className="big-arrow" aria-hidden="true">
               <ArrowUpRight strokeWidth={1.8} />
             </span>
           </h2>
-          <p>
-            Tell us what you’re imagining.
-            <br />
-            We’ll help you find the way forward.
-          </p>
         </div>
         <ContactForm />
       </div>
