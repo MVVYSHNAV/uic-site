@@ -1,0 +1,1175 @@
+/* ==========================================================================
+   UIC STUDIO — HERO BUSINESS CARD SECTION (STRICT PALETTE: BG, BONE, LIME)
+   ========================================================================== */
+:root {
+  --portal-bg: #0A0C0E;
+  --portal-bone: #EDE7DC;
+  --portal-bone-muted: #B8B3A8;
+  --portal-lime: #F3E700;
+  --portal-lime-hover: #E4FF85;
+  --portal-lime-glow: rgba(217, 255, 101, 0.28);
+  --portal-line: rgba(237, 231, 220, 0.12);
+  --portal-line-subtle: rgba(237, 231, 220, 0.07);
+}
+
+.hero-card-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--portal-bg);
+  color: var(--portal-bone);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: clamp(86px, 11vh, 120px);
+}
+
+/* 1. Ambient Studio Atmosphere & Lighting (Lime & Bone on Obsidian) */
+.hero-card-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+
+.hero-orb-lime {
+  top: 20%;
+  right: 10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(217, 255, 101, 0.14) 0%, rgba(217, 255, 101, 0.04) 50%, transparent 75%);
+  animation: orbDriftLime 20s ease-in-out infinite alternate;
+}
+
+.hero-orb-bone {
+  bottom: 8%;
+  left: 6%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(237, 231, 220, 0.09) 0%, rgba(237, 231, 220, 0.02) 60%, transparent 80%);
+  animation: orbDriftBone 24s ease-in-out infinite alternate;
+}
+
+@keyframes orbDriftLime {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(-36px, 44px) scale(1.1);
+  }
+}
+
+@keyframes orbDriftBone {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(44px, -36px) scale(1.08);
+  }
+}
+
+.hero-card-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(237, 231, 220, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 231, 220, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
+}
+
+.hero-card-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 12, 14, 0.9) 100%);
+}
+
+/* 2. Main Hero Stage Container */
+.hero-card-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* 3. Top Hairline Bar */
+.hero-card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 20px;
+  border-bottom: 1px solid var(--portal-line-subtle);
+}
+
+.hero-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--portal-lime);
+}
+
+.kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--portal-lime);
+  box-shadow: 0 0 10px var(--portal-lime);
+  animation: kickerPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes kickerPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.hero-card-meta {
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--portal-bone-muted);
+}
+
+/* 4. Two-Column Hero Composition */
+.hero-card-container {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(28px, 4vh, 56px) 0;
+  flex: 1;
+}
+
+/* Left Column: Editorial Content */
+.hero-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+}
+
+.hero-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(217, 255, 101, 0.08);
+  border: 1px solid rgba(217, 255, 101, 0.28);
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--portal-lime);
+  margin-bottom: 22px;
+}
+
+.hero-badge-icon {
+  color: var(--portal-lime);
+  animation: badgeTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes badgeTwinkle {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 1;
+  }
+}
+
+.hero-card-headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.8rem, 5.4vw, 5.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--portal-bone);
+  margin: 0 0 20px;
+}
+
+.hero-headline-accent {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--portal-bone) 30%, var(--portal-lime) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-card-description {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(0.96rem, 1.15vw, 1.14rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--portal-bone-muted);
+  margin: 0 0 34px;
+  max-width: 530px;
+}
+
+.hero-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.hero-card-btn-tap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--portal-lime);
+  color: #0A0C0E;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 28px rgba(217, 255, 101, 0.32);
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.hero-card-btn-tap:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(217, 255, 101, 0.45);
+  background: var(--portal-lime-hover);
+}
+
+.hero-card-btn-tap.is-tapped {
+  background: #ffffff;
+  box-shadow: 0 0 34px rgba(217, 255, 101, 0.7);
+  color: #0A0C0E;
+  transform: scale(0.98);
+}
+
+.btn-tap-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0A0C0E;
+}
+
+.btn-tap-arrow {
+  transition: transform 0.2s ease;
+}
+
+.hero-card-btn-tap:hover .btn-tap-arrow {
+  transform: translateY(3px);
+}
+
+.hero-card-link-subtle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--portal-bone);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(237, 231, 220, 0.2);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-card-link-subtle:hover {
+  color: var(--portal-lime);
+  border-bottom-color: var(--portal-lime);
+}
+
+.hero-card-specs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--portal-line-subtle);
+  width: 100%;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spec-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--portal-lime);
+}
+
+.spec-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--portal-bone-muted);
+}
+
+.spec-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--portal-line-subtle);
+}
+
+/* 5. Right Column: 3D Interactive Business Card Showcase */
+.hero-card-showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-pedestal-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  max-width: 580px;
+  max-height: 480px;
+  background: radial-gradient(ellipse at center, rgba(217, 255, 101, 0.12) 0%, rgba(237, 231, 220, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-floating-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(14, 18, 16, 0.9);
+  border: 1px solid rgba(217, 255, 101, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--portal-lime);
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+
+.hint-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--portal-lime);
+  box-shadow: 0 0 8px var(--portal-lime);
+  animation: hintBlink 1.8s infinite;
+}
+
+@keyframes hintBlink {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* 3D Perspective Stage */
+.card-3d-perspective {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 278px;
+  perspective: 1200px;
+  z-index: 3;
+}
+
+/* The 3D Card Body */
+.card-3d-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.14s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: cardIdleFloat 8s ease-in-out infinite alternate;
+  user-select: none;
+  outline: none;
+}
+
+.card-3d-perspective:hover .card-3d-body {
+  animation-play-state: paused;
+}
+
+@keyframes cardIdleFloat {
+  0% {
+    transform: rotateX(calc(var(--rx, 0deg) - 2deg)) rotateY(calc(var(--ry, 0deg) - 3deg)) translateY(0px);
+  }
+
+  50% {
+    transform: rotateX(calc(var(--rx, 0deg) + 2deg)) rotateY(calc(var(--ry, 0deg) + 2deg)) translateY(-8px);
+  }
+
+  100% {
+    transform: rotateX(calc(var(--rx, 0deg) - 1deg)) rotateY(calc(var(--ry, 0deg) + 4deg)) translateY(-4px);
+  }
+}
+
+.card-3d-body.is-flipped {
+  transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + 180deg)) !important;
+  animation: none;
+}
+
+.card-3d-body.is-tapped {
+  transform: scale(0.96) translateY(4px) !important;
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* NFC Electromagnetic Wave Ripple */
+.card-nfc-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+}
+
+.card-nfc-burst.active {
+  opacity: 1;
+}
+
+.card-nfc-burst.active .nfc-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 28px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.card-nfc-burst.active .nfc-ring-1 {
+  animation: nfcRingExpand 1.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  border: 2px solid rgba(217, 255, 101, 0.9);
+  box-shadow: 0 0 30px rgba(217, 255, 101, 0.8), inset 0 0 20px rgba(217, 255, 101, 0.3);
+}
+
+.card-nfc-burst.active .nfc-ring-2 {
+  animation: nfcRingExpand 1.6s 0.15s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  border: 2px solid rgba(237, 231, 220, 0.85);
+  box-shadow: 0 0 28px rgba(237, 231, 220, 0.7);
+}
+
+.card-nfc-burst.active .nfc-ring-3 {
+  animation: nfcRingExpand 1.6s 0.3s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  border: 1.5px solid rgba(217, 255, 101, 0.7);
+  box-shadow: 0 0 35px rgba(217, 255, 101, 0.55);
+}
+
+@keyframes nfcRingExpand {
+  0% {
+    width: 60px;
+    height: 48px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  100% {
+    width: 580px;
+    height: 380px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+/* Card Faces */
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+/* ================= Front Face ================= */
+.card-face-front {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(217, 255, 101, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(237, 231, 220, 0.05) 0%, transparent 60%),
+    linear-gradient(135deg, #161b18 0%, #0c0f0d 50%, #121614 100%);
+  border: 1px solid rgba(217, 255, 101, 0.32);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.8);
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-specular-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 260px at var(--gx, 50%) var(--gy, 50%),
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(217, 255, 101, 0.12) 35%,
+      rgba(237, 231, 220, 0.06) 60%,
+      transparent 80%);
+  mix-blend-mode: screen;
+  z-index: 4;
+}
+
+.card-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' opacity='.8' d='M0 0h160v160H0z'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.card-bevel-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(237, 231, 220, 0.12);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Front Header */
+.card-front-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-brand-lockup {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.card-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--portal-bone) 50%, var(--portal-lime) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.card-brand-reg {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--portal-lime);
+  vertical-align: super;
+}
+
+.card-brand-sub {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--portal-bone-muted);
+  margin-left: 6px;
+}
+
+.card-nfc-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--portal-lime);
+}
+
+.card-nfc-waves {
+  filter: drop-shadow(0 0 8px rgba(217, 255, 101, 0.6));
+  animation: nfcSignalGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes nfcSignalGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 4px rgba(217, 255, 101, 0.4));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(217, 255, 101, 0.9));
+  }
+}
+
+.nfc-tag-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--portal-lime);
+  border: 1px solid rgba(217, 255, 101, 0.4);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Front Center: Smart Chip */
+.card-front-center {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 6px 0;
+}
+
+.card-emv-chip {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.chip-svg {
+  display: block;
+}
+
+.card-frequency-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.freq-code {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--portal-bone-muted);
+}
+
+.freq-status {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--portal-lime);
+}
+
+/* Front Footer */
+.card-front-footer {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(237, 231, 220, 0.08);
+  padding-top: 14px;
+}
+
+.card-holder-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-holder-role {
+  font-family: 'Sora', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--portal-lime);
+  text-transform: uppercase;
+}
+
+.card-holder-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--portal-bone);
+  margin: 2px 0;
+}
+
+.card-holder-tagline {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  color: var(--portal-bone-muted);
+}
+
+.card-serial-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.card-serial-no {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--portal-lime);
+}
+
+.card-edition {
+  font-family: 'Sora', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--portal-bone-muted);
+}
+
+/* Card Tap Overlay Banner */
+.card-tap-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 13, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.card-tap-overlay.is-active {
+  opacity: 1;
+}
+
+.tap-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.tap-overlay-icon {
+  font-size: 26px;
+  color: var(--portal-lime);
+  animation: tapSpin 1.4s ease infinite;
+}
+
+@keyframes tapSpin {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.3) rotate(90deg);
+  }
+
+  100% {
+    transform: scale(0.9) rotate(180deg);
+  }
+}
+
+.tap-overlay-content strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  color: var(--portal-lime);
+}
+
+.tap-overlay-content small {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--portal-bone);
+}
+
+/* ================= Back Face ================= */
+.card-face-back {
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(217, 255, 101, 0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #111413 0%, #0a0c0e 60%, #151918 100%);
+  border: 1px solid rgba(217, 255, 101, 0.28);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-magnetic-stripe {
+  height: 44px;
+  background: #000000;
+  margin-top: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.stripe-holo-track {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: linear-gradient(90deg,
+      rgba(217, 255, 101, 0.2) 0%,
+      rgba(237, 231, 220, 0.4) 25%,
+      rgba(217, 255, 101, 0.45) 50%,
+      rgba(237, 231, 220, 0.4) 75%,
+      rgba(217, 255, 101, 0.2) 100%);
+  opacity: 0.7;
+}
+
+.card-back-body {
+  padding: 0 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.card-signature-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--portal-bone);
+  border-radius: 4px;
+  padding: 6px 14px;
+  color: #121516;
+}
+
+.signature-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.sig-handwrite {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #1c2220;
+}
+
+.sig-meta {
+  font-family: 'Sora', sans-serif;
+  font-size: 6px;
+  letter-spacing: 0.16em;
+  color: #7d827c;
+  text-transform: uppercase;
+}
+
+.sig-security-code {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #121516;
+}
+
+.card-qr-zone {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-qr-box {
+  background: var(--portal-bone);
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.qr-svg {
+  display: block;
+}
+
+.card-qr-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-qr-instructions strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--portal-lime);
+}
+
+.card-qr-instructions p {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  color: var(--portal-bone-muted);
+}
+
+.card-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: rgba(237, 231, 220, 0.08);
+  border: 1px solid rgba(237, 231, 220, 0.18);
+  color: var(--portal-bone);
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.card-copy-btn:hover {
+  background: rgba(217, 255, 101, 0.18);
+  border-color: var(--portal-lime);
+  color: var(--portal-lime);
+}
+
+.card-back-footer {
+  padding: 10px 24px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--portal-bone-muted);
+  border-top: 1px solid rgba(237, 231, 220, 0.06);
+}
+
+/* 3D Realistic Shadow */
+.card-3d-shadow {
+  position: absolute;
+  bottom: -32px;
+  left: 8%;
+  right: 8%;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  filter: blur(24px);
+  pointer-events: none;
+  transform: translate(var(--shadow-x, 0px), var(--shadow-y, 30px)) scale(0.92);
+  transition: transform 0.14s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+}
+
+/* Showcase Control Bar */
+.card-controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 36px;
+  z-index: 5;
+}
+
+.card-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(14, 18, 16, 0.85);
+  border: 1px solid var(--portal-line);
+  color: var(--portal-bone);
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.card-ctrl-btn:hover {
+  border-color: var(--portal-lime);
+  color: var(--portal-lime);
+  transform: translateY(-1px);
+}
+
+.card-ctrl-btn .ctrl-icon {
+  color: var(--portal-lime);
+}
+
+/* 6. Bottom Navigation Bar */
+.hero-card-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0 28px;
+  border-top: 1px solid var(--portal-line-subtle);
+  margin-top: 20px;
+}
+
+.hero-card-bottom-link {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--portal-bone);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.hero-card-bottom-link .bottom-arrow {
+  color: var(--portal-lime);
+  transition: transform 0.25s ease;
+}
+
+.hero-card-bottom-link:hover {
+  color: var(--portal-lime);
+}
+
+.hero-card-bottom-link:hover .bottom-arrow {
+  transform: translateY(4px);
+}
+
+.hero-card-scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-indicator-bar {
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--portal-lime));
+}
+
+.scroll-indicator-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--portal-bone-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .hero-card-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 24px 0 36px;
+    text-align: center;
+  }
+
+  .hero-card-content {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .hero-card-description {
+    text-align: center;
+  }
+
+  .hero-card-actions {
+    justify-content: center;
+  }
+
+  .hero-card-specs {
+    justify-content: center;
+  }
+
+  .card-3d-perspective {
+    max-width: min(420px, 92vw);
+    height: clamp(230px, 58vw, 270px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-card-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-3d-perspective {
+    max-width: 100%;
+    height: 236px;
+  }
+
+  .card-face-front {
+    padding: 18px 20px;
+  }
+
+  .card-brand-name {
+    font-size: 26px;
+  }
+
+  .card-controls-bar {
+    margin-top: 24px;
+  }
+
+  .hero-card-specs {
+    display: none;
+  }
+}

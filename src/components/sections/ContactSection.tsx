@@ -6,7 +6,7 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { TestimonialMarquee } from '@/components/testimonials/TestimonialMarquee';
 
 const GREETINGS = [
-  { id: 'en', word: 'Hi.' },
+  { id: 'en', word: 'hi.' },
   { id: 'kn', word: 'ನಮಸ್ಕಾರ.' },
   { id: 'hi', word: 'नमस्ते.' },
   { id: 'ml', word: 'നമസ്കാരം.' },
