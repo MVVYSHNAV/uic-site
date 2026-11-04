@@ -115,259 +115,13 @@ textarea:focus-visible {
   --portal-line-subtle: rgba(237, 231, 220, 0.07);
 }
 
-.hero-portal {
-  position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 640px;
-  background: var(--portal-bg);
-  color: var(--portal-bone);
-  overflow: hidden;
-}
-
-.portal-stage {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 640px;
-  overflow: hidden;
-  background: var(--portal-bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* 1. Cinematic Background Photograph Layer (Inside Fixed Page Base) */
-.portal-photo-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-  transition: opacity 0.8s ease, filter 0.8s ease;
-}
-
-.portal-is-closed .portal-photo-layer {
-  opacity: 0;
-  pointer-events: none;
-  filter: contrast(1.1) brightness(0.3) blur(16px);
-}
-
-.portal-is-open .portal-photo-layer {
-  opacity: 1;
-  filter: contrast(1.1) brightness(0.78) blur(0px);
-}
-
-.portal-photo {
-  position: absolute;
-  inset: -4%;
-  width: 108%;
-  height: 108%;
-  object-fit: cover;
-  object-position: center 38%;
-  transform: scale(1.04);
-  filter: contrast(1.1) brightness(0.75);
-}
-
-/* Subtle Lime and Bone Wash */
-.portal-wash {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 15% 25%, rgba(217, 255, 101, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 75%, rgba(237, 231, 220, 0.12) 0%, transparent 65%),
-    linear-gradient(135deg, rgba(217, 255, 101, 0.08) 0%, rgba(10, 12, 14, 0.6) 50%, rgba(237, 231, 220, 0.06) 100%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-.portal-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(10, 12, 14, 0.3) 0%, rgba(10, 12, 14, 0.92) 85%);
-  pointer-events: none;
-}
-
-.portal-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' opacity='.6' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
-}
-
-/* 2. Fine Hairline Editorial Frame */
-.portal-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 8;
-  padding: 92px 5% 0;
-  pointer-events: none;
-}
-
-.portal-frame-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 14px;
-}
-
-.portal-meta {
-  font-family: 'Sora', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--portal-muted);
-}
-
-
-.portal-frame-hairline {
-  width: 100%;
-  height: 1px;
-  background: var(--portal-line-subtle);
-}
-
-/* 3. Center Composition: Inside Fixed Page Wordmark & Editorial */
-.portal-center {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 5%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease;
-}
-
-.portal-is-closed .portal-center {
-  opacity: 0;
-  transform: scale(0.94) translateY(28px);
-  filter: blur(16px);
-  pointer-events: none;
-}
-
-.portal-is-open .portal-center {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  filter: blur(0px);
-  pointer-events: auto;
-}
-
-/* Huge "UIC STUDIO." display wordmark */
-.portal-wordmark {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3.2rem, 10.4vw, 11rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--portal-bone);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  margin-bottom: clamp(16px, 2.5vh, 28px);
-}
-
-.wordmark-part {
-  display: inline-block;
-}
-
-.wordmark-divider {
-  display: inline-block;
-  width: 0.22em;
-}
-
-/* Supporting Editorial Content */
-.portal-editorial {
-  max-width: 680px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.portal-label {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(10px, 0.85vw, 11px);
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--portal-lime);
-  margin: 0 0 14px;
-}
-
-.portal-headline {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 3.8vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  color: var(--portal-bone);
-  margin: 0 0 16px;
-}
-
-.portal-desc {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(0.92rem, 1.15vw, 1.12rem);
-  font-weight: 300;
-  line-height: 1.65;
-  color: #C1BCB3;
-  max-width: 520px;
-  margin: 0 0 26px;
-}
-
-.portal-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portal-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(12px, 0.95vw, 14px);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--portal-bone);
-  text-decoration: none;
-  padding: 6px 0;
-  border-bottom: 1.5px solid var(--portal-lime);
-  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-}
-
-.portal-cta:hover {
-  color: var(--portal-lime);
-  border-bottom-color: var(--portal-bone);
-  transform: translateY(-1px);
-}
-
-.portal-cta .cta-arrow {
-  display: inline-block;
-  transition: transform 0.25s ease;
-  color: var(--portal-lime);
-}
-
-.portal-cta:hover .cta-arrow {
-  transform: translate(3px, -3px);
-}
-
 /* ==========================================================================
-   4. BUSINESS CARD GATEWAY (Centered in the middle, begins CLOSED)
+   PRE-OPEN BUSINESS CARD GATEWAY (Begins CLOSED, Opens on Tap or Scroll)
    ========================================================================== */
 .portal-card-gateway {
   position: absolute;
   inset: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -385,9 +139,43 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
-/* ==========================================================================
-   MINIMAL ATMOSPHERIC SIGNAL FIELD (Passing Signals in Background)
-   ========================================================================== */
+/* Faded Cinematic Skyline Artwork for Pre-Open Hero Section */
+.portal-gateway-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portal-gateway-art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(50%) contrast(1.15) brightness(0.35);
+  opacity: 0.32;
+  transform: scale(1.04);
+}
+
+.portal-gateway-art-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(217, 255, 101, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 75%, rgba(237, 231, 220, 0.06) 0%, transparent 60%);
+  mix-blend-mode: screen;
+}
+
+.portal-gateway-art-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 30%, rgba(10, 12, 14, 0.88) 85%),
+    linear-gradient(to bottom, rgba(10, 12, 14, 0.6) 0%, transparent 35%, transparent 65%, rgba(10, 12, 14, 0.95) 100%);
+}
+
+/* Minimal Atmospheric Passing Signals */
 .portal-signal-field {
   position: absolute;
   inset: 0;
@@ -396,7 +184,6 @@ textarea:focus-visible {
   z-index: 1;
 }
 
-/* Signal Hairline Tracks */
 .signal-track {
   position: absolute;
   pointer-events: none;
@@ -434,7 +221,6 @@ textarea:focus-visible {
   background: linear-gradient(180deg, transparent 0%, rgba(217, 255, 101, 0.05) 30%, rgba(237, 231, 220, 0.04) 75%, transparent 100%);
 }
 
-/* Luminous Signal Pulses */
 .signal-pulse {
   position: absolute;
   border-radius: 999px;
@@ -442,7 +228,6 @@ textarea:focus-visible {
   opacity: 0;
 }
 
-/* Horizontal Pulses */
 .pulse-lime {
   top: -1px;
   width: 65px;
@@ -461,7 +246,6 @@ textarea:focus-visible {
   animation: signalPassH2 12s 3.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
-/* Vertical Pulses */
 .pulse-lime-v {
   left: -1px;
   width: 3px;
@@ -481,74 +265,33 @@ textarea:focus-visible {
 }
 
 @keyframes signalPassH1 {
-  0% {
-    left: -10%;
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.85;
-  }
-  85% {
-    opacity: 0.8;
-  }
-  100% {
-    left: 110%;
-    opacity: 0;
-  }
+  0% { left: -10%; opacity: 0; }
+  12% { opacity: 0.85; }
+  85% { opacity: 0.8; }
+  100% { left: 110%; opacity: 0; }
 }
 
 @keyframes signalPassH2 {
-  0% {
-    right: -10%;
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.75;
-  }
-  85% {
-    opacity: 0.7;
-  }
-  100% {
-    right: 110%;
-    opacity: 0;
-  }
+  0% { right: -10%; opacity: 0; }
+  12% { opacity: 0.75; }
+  85% { opacity: 0.7; }
+  100% { right: 110%; opacity: 0; }
 }
 
 @keyframes signalPassV1 {
-  0% {
-    top: -10%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.8;
-  }
-  80% {
-    opacity: 0.75;
-  }
-  100% {
-    top: 110%;
-    opacity: 0;
-  }
+  0% { top: -10%; opacity: 0; }
+  15% { opacity: 0.8; }
+  80% { opacity: 0.75; }
+  100% { top: 110%; opacity: 0; }
 }
 
 @keyframes signalPassV2 {
-  0% {
-    bottom: -10%;
-    opacity: 0;
-  }
-  15% {
-    opacity: 0.7;
-  }
-  80% {
-    opacity: 0.65;
-  }
-  100% {
-    bottom: 110%;
-    opacity: 0;
-  }
+  0% { bottom: -10%; opacity: 0; }
+  15% { opacity: 0.7; }
+  80% { opacity: 0.65; }
+  100% { bottom: 110%; opacity: 0; }
 }
 
-/* Micro Signal Nodes & Pings */
 .signal-node {
   position: absolute;
   display: flex;
@@ -602,14 +345,8 @@ textarea:focus-visible {
 }
 
 @keyframes nodeRingPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.75;
-  }
-  100% {
-    transform: scale(8);
-    opacity: 0;
-  }
+  0% { transform: scale(1); opacity: 0.75; }
+  100% { transform: scale(8); opacity: 0; }
 }
 
 .node-label {
@@ -620,77 +357,6 @@ textarea:focus-visible {
   color: rgba(237, 231, 220, 0.35);
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-/* Faded Cinematic Skyline Artwork for Pre-Open Hero Section */
-.portal-gateway-art {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.portal-gateway-art-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  filter: grayscale(50%) contrast(1.15) brightness(0.35);
-  opacity: 0.32;
-  transform: scale(1.04);
-}
-
-.portal-gateway-art-wash {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 75% 25%, rgba(217, 255, 101, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse at 25% 75%, rgba(237, 231, 220, 0.06) 0%, transparent 60%);
-  mix-blend-mode: screen;
-}
-
-.portal-gateway-art-vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, transparent 30%, rgba(10, 12, 14, 0.88) 85%),
-    linear-gradient(to bottom, rgba(10, 12, 14, 0.6) 0%, transparent 35%, transparent 65%, rgba(10, 12, 14, 0.95) 100%);
-}
-
-/* Subtle Faded Art Texture inside the Card */
-.card-art-texture {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.card-art-texture-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 65% 30%;
-  filter: grayscale(45%) contrast(1.2) brightness(0.38);
-  opacity: 0.35;
-  mix-blend-mode: luminosity;
-  transform: scale(1.05);
-  transition: transform 0.6s ease, opacity 0.6s ease;
-}
-
-.portal-card-gateway:hover .card-art-texture-img {
-  transform: scale(1.09);
-  opacity: 0.45;
-}
-
-.card-art-texture-veil {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 80% 20%, rgba(217, 255, 101, 0.12) 0%, transparent 60%),
-    linear-gradient(145deg, rgba(24, 29, 27, 0.6) 0%, rgba(13, 17, 15, 0.82) 60%, rgba(19, 23, 21, 0.78) 100%);
 }
 
 /* Two small glowing accent dots at the centre */
@@ -792,7 +458,7 @@ textarea:focus-visible {
   }
 }
 
-/* The Tilted Minimalist Luxury Business Card (Restored to Dark Obsidian Style) */
+/* The Tilted Minimalist Luxury Business Card */
 .hero-business-card {
   position: relative;
   z-index: 12;
@@ -851,7 +517,41 @@ textarea:focus-visible {
   transition: transform 0.12s ease;
 }
 
-/* Dynamic Glare & Grain */
+/* Faded Art Texture inside the Card */
+.card-art-texture {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-art-texture-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% 30%;
+  filter: grayscale(45%) contrast(1.2) brightness(0.38);
+  opacity: 0.35;
+  mix-blend-mode: luminosity;
+  transform: scale(1.05);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.portal-card-gateway:hover .card-art-texture-img {
+  transform: scale(1.09);
+  opacity: 0.45;
+}
+
+.card-art-texture-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(217, 255, 101, 0.12) 0%, transparent 60%),
+    linear-gradient(145deg, rgba(24, 29, 27, 0.6) 0%, rgba(13, 17, 15, 0.82) 60%, rgba(19, 23, 21, 0.78) 100%);
+}
+
 .card-glare-layer {
   position: absolute;
   inset: 0;
@@ -877,7 +577,6 @@ textarea:focus-visible {
   z-index: 1;
 }
 
-/* Minimal Art Crosses */
 .card-art-cross {
   position: absolute;
   font-family: monospace;
@@ -894,7 +593,6 @@ textarea:focus-visible {
 .cross-bl { bottom: 10px; left: 12px; }
 .cross-br { bottom: 10px; right: 12px; }
 
-/* Card Header: Brand Monogram + NFC */
 .card-top-row {
   position: relative;
   z-index: 4;
@@ -936,14 +634,13 @@ textarea:focus-visible {
   50% { opacity: 1; transform: scale(1.1); }
 }
 
-/* Card Center: "Welcome to UIC" */
 .card-welcome-center {
   position: relative;
   z-index: 4;
   margin: auto 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .card-welcome-lead {
@@ -964,7 +661,6 @@ textarea:focus-visible {
   color: #EDE7DC;
 }
 
-/* Card Bottom */
 .card-bottom-row {
   position: relative;
   z-index: 4;
@@ -992,80 +688,272 @@ textarea:focus-visible {
   color: var(--portal-muted);
 }
 
-/* ==========================================================================
-   5. BOTTOM NAVIGATION BAR
-   ========================================================================== */
-.portal-bottom {
-  position: relative;
-  z-index: 6;
-  width: 100%;
-  padding: 0 5% 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  transition: opacity 0.5s ease;
+/* Transitions between Pre-Open & Open States */
+.portal-is-closed .hero-ref-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  filter: contrast(1.1) brightness(0.3) blur(16px);
 }
 
-.portal-bottom-link {
-  font-family: 'Sora', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--portal-bone);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  pointer-events: auto;
-  transition: color 0.2s ease;
+.portal-is-open .hero-ref-backdrop {
+  opacity: 1;
+  filter: blur(0px);
+  transition: opacity 0.8s ease, filter 0.8s ease;
 }
 
-.portal-bottom-link .arrow {
-  color: var(--portal-lime);
-  transition: transform 0.25s ease;
-}
-
-.portal-bottom-link:hover {
-  color: var(--portal-lime);
-}
-
-.portal-bottom-link:hover .arrow {
-  transform: translateY(3px);
-  color: var(--portal-lime);
-}
-
-.portal-scroll-hint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+.portal-is-closed .hero-ref-container {
+  opacity: 0;
+  transform: scale(0.95) translateY(28px);
+  filter: blur(16px);
   pointer-events: none;
 }
 
-.scroll-hint-bar {
-  width: 1px;
-  height: 22px;
-  background: linear-gradient(180deg, var(--portal-lime), rgba(217, 255, 101, 0.1));
+.portal-is-open .hero-ref-container {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0px);
+  pointer-events: auto;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
 }
 
-.scroll-hint-text {
-  font-family: 'Sora', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--portal-muted);
+/* ==========================================================================
+   REDESIGNED HERO SECTION (Matching Reference Mockup Aesthetic)
+   ========================================================================== */
+.hero-ref-viewport {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--portal-bg);
+  color: var(--portal-bone);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.portal-bottom-code {
-  font-family: 'Sora', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--portal-muted);
+/* Dynamic Cinematic Motion Background */
+.hero-ref-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
+
+.backdrop-motion-figure {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  transform: scale(1.02);
+}
+
+.backdrop-img-core {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: contrast(1.1) brightness(0.72);
+  opacity: 0.88;
+}
+
+/* Directional Speed Blur Streaks (Conveying High Velocity Motion) */
+.backdrop-speed-streaks {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 120px,
+    rgba(217, 255, 101, 0.03) 120px,
+    rgba(217, 255, 101, 0.03) 122px,
+    transparent 122px,
+    transparent 280px,
+    rgba(237, 231, 220, 0.02) 280px,
+    rgba(237, 231, 220, 0.02) 281px
+  );
+  mix-blend-mode: screen;
+}
+
+/* Warm Bone & Electric Lime Lens Flare */
+.backdrop-light-flare {
+  position: absolute;
+  top: 15%;
+  left: 38%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(217, 255, 101, 0.16) 0%,
+    rgba(237, 231, 220, 0.08) 35%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  mix-blend-mode: screen;
+}
+
+.backdrop-obsidian-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 48% 45%,
+    rgba(10, 12, 14, 0.15) 0%,
+    rgba(10, 12, 14, 0.65) 65%,
+    #0A0C0E 95%
+  );
+}
+
+.backdrop-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 12, 14, 0.7) 0%,
+    transparent 20%,
+    transparent 75%,
+    #0A0C0E 100%
+  );
+}
+
+/* Main Container Layout */
+.hero-ref-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(96px, 12vh, 128px) clamp(24px, 4.5vw, 64px) 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 4vh, 48px);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. TOP ROW: CRAFT + SCHEDULE WIDGET
+   ========================================================================== */
+.hero-ref-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+
+.hero-ref-headline-wrap {
+  flex: 1;
+}
+
+.hero-ref-title {
+  margin: 0;
+  line-height: 0.85;
+}
+
+.title-word-craft {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(4.2rem, 13.5vw, 12.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--portal-bone);
+  text-transform: uppercase;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+/* ==========================================================================
+   2. MIDDLE ROW: // YOUR PRESENCE (Giant Layered Display Text)
+   ========================================================================== */
+.hero-ref-mid-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: clamp(16px, 3.5vw, 42px);
+  flex-wrap: wrap;
+  width: 100%;
+  margin: clamp(12px, 3vh, 36px) 0;
+  user-select: none;
+}
+
+.hero-ref-title-subgroup {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.title-slash {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.2rem, 9.5vw, 8.5rem);
+  font-weight: 800;
+  color: var(--portal-lime);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 30px rgba(217, 255, 101, 0.5);
+}
+
+.title-word-your {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.2rem, 9.5vw, 8.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--portal-bone);
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.title-word-presence {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(4.2rem, 13.5vw, 12.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--portal-bone);
+  line-height: 0.88;
+  text-transform: uppercase;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .hero-ref-top-row {
+    flex-direction: column;
+  }
+  .hero-ref-schedule-card {
+    width: 100%;
+    max-width: 440px;
+  }
+  .hero-ref-bottom-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-ref-trusted {
+    order: 2;
+  }
+  .hero-ref-social-proof {
+    order: 3;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-ref-container {
+    padding-top: 88px;
+  }
+  .hero-ref-mid-row {
+    justify-content: flex-start;
+  }
+  .title-word-craft,
+  .title-word-presence {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+  .title-word-your,
+  .title-slash {
+    font-size: clamp(2.4rem, 12vw, 4.2rem);
+  }
+}
+
 .eyebrow,
 .section-kicker {
   font-size: 10px;
