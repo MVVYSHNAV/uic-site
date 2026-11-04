@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeroClosed, setIsHeroClosed] = useState(true);
+
   useEffect(() => {
     const escape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false);
@@ -11,9 +14,69 @@ export function SiteHeader() {
     document.addEventListener('keydown', escape);
     return () => document.removeEventListener('keydown', escape);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+      if (scrollY > 30) {
+        setIsHeroClosed(false);
+      }
+    };
+
+    const handleHeroOpen = () => {
+      setIsHeroClosed(false);
+    };
+
+    // Check initial state
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > 30 || document.documentElement.getAttribute('data-hero-opened') === 'true') {
+        setIsHeroClosed(false);
+      }
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('uic:hero-open', handleHeroOpen);
+
+    const observer = new MutationObserver(() => {
+      const state = document.documentElement.getAttribute('data-hero-opened');
+      if (state === 'true') {
+        setIsHeroClosed(false);
+      } else if (state === 'false' && window.scrollY <= 30) {
+        setIsHeroClosed(true);
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-hero-opened'],
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('uic:hero-open', handleHeroOpen);
+      observer.disconnect();
+    };
+  }, []);
+
+  const handleNavClick = () => {
+    setOpen(false);
+    setIsHeroClosed(false);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('uic:hero-open'));
+    }
+  };
+
   return (
-    <header className="header">
-      <a className="logo" href="#top" aria-label="UIC home">
+    <header
+      className={`header ${isScrolled ? 'is-scrolled' : ''} ${
+        isHeroClosed ? 'is-hero-closed' : 'is-hero-opened'
+      }`}
+    >
+      <a className="logo" href="#top" aria-label="UIC home" onClick={handleNavClick}>
         uic<span>®</span>
       </a>
       <span className="wordmark">
@@ -56,12 +119,11 @@ export function SiteHeader() {
         id="navigation"
         className={open ? 'open' : ''}
         aria-label="Main navigation"
-        onClick={() => setOpen(false)}
       >
-        <a href="#work">Work</a>
-        <a href="#services">Expertise</a>
-        <a href="#nfc">Beyond digital</a>
-        <a className="nav-cta" href="#contact">
+        <a href="#work" onClick={handleNavClick}>Work</a>
+        <a href="#services" onClick={handleNavClick}>Expertise</a>
+        <a href="#nfc" onClick={handleNavClick}>Beyond digital</a>
+        <a className="nav-cta" href="#contact" onClick={handleNavClick}>
           Let’s talk{' '}
           <svg
             width="12"

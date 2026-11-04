@@ -52,38 +52,57 @@ textarea:focus-visible {
 .skip:focus {
   top: 10px;
 }
+/* ==========================================================================
+   UIC STUDIO — EDITORIAL LUXURY NAVBAR (Always visible, adaptive contrast)
+   ========================================================================== */
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   align-items: center;
-  padding: 30px 5%;
+  padding: 26px 5%;
   gap: 20px;
-  color: #eee;
+  box-sizing: border-box;
+  color: var(--portal-bg);
+  transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .logo {
-  font-size: 54px;
+  font-size: 46px;
   font-weight: 800;
-  letter-spacing: -5px;
+  letter-spacing: -4px;
   line-height: 1;
   font-family: 'Manrope', sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
 .logo span {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0;
   vertical-align: top;
-  margin: 8px 0 0 5px;
+  margin: 6px 0 0 4px;
   display: inline-block;
 }
+
 .wordmark {
   font-size: 9px;
   letter-spacing: 1.6px;
   line-height: 1.6;
-  border-left: 1px solid #555;
   padding-left: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
+
 .header nav {
   margin-left: auto;
   display: flex;
@@ -91,16 +110,135 @@ textarea:focus-visible {
   gap: 36px;
   font-size: 13px;
 }
+
 .nav-cta {
-  border: 1px solid #646569;
   border-radius: 30px;
-  padding: 13px 22px;
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.01em;
 }
-.nav-cta span {
-  margin-left: 30px;
-}
+
 .menu-toggle {
   display: none;
+}
+
+/* 1. CLOSED HERO / PRE-OPEN STATE: Bone text on dark skyline */
+.header.is-hero-closed:not(.is-scrolled) {
+  color: var(--portal-bone);
+}
+.header.is-hero-closed:not(.is-scrolled) .logo {
+  color: var(--portal-bone);
+}
+.header.is-hero-closed:not(.is-scrolled) .logo span {
+  color: var(--portal-lime);
+}
+.header.is-hero-closed:not(.is-scrolled) .wordmark {
+  color: rgba(237, 231, 220, 0.72);
+  border-left: 1px solid rgba(237, 231, 220, 0.2);
+}
+.header.is-hero-closed:not(.is-scrolled) nav a {
+  color: var(--portal-bone);
+  transition: color 0.2s ease;
+}
+.header.is-hero-closed:not(.is-scrolled) nav a:hover {
+  color: var(--portal-lime);
+}
+.header.is-hero-closed:not(.is-scrolled) .nav-cta {
+  border: 1px solid rgba(237, 231, 220, 0.32);
+  color: var(--portal-bone);
+  background: rgba(237, 231, 220, 0.05);
+}
+.header.is-hero-closed:not(.is-scrolled) .nav-cta:hover {
+  background: var(--portal-lime);
+  color: var(--portal-bg);
+  border-color: var(--portal-lime);
+}
+.header.is-hero-closed:not(.is-scrolled) .menu-toggle {
+  color: var(--portal-bone);
+  border: 1px solid rgba(237, 231, 220, 0.3);
+}
+
+/* 2. REVEALED HERO & DEFAULT SITE-WIDE: Obsidian text on Bone / Ivory */
+.header.is-hero-opened,
+.header:not(.is-hero-closed) {
+  color: var(--portal-bg);
+}
+.header.is-hero-opened .logo,
+.header:not(.is-hero-closed) .logo {
+  color: var(--portal-bg);
+}
+.header.is-hero-opened .logo span,
+.header:not(.is-hero-closed) .logo span {
+  color: var(--portal-bg);
+}
+.header.is-hero-opened .wordmark,
+.header:not(.is-hero-closed) .wordmark {
+  color: rgba(10, 12, 14, 0.65);
+  border-left: 1px solid rgba(10, 12, 14, 0.2);
+}
+.header.is-hero-opened nav a,
+.header:not(.is-hero-closed) nav a {
+  color: var(--portal-bg);
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+.header.is-hero-opened nav a:hover,
+.header:not(.is-hero-closed) nav a:hover {
+  opacity: 0.6;
+}
+.header.is-hero-opened .nav-cta,
+.header:not(.is-hero-closed) .nav-cta {
+  border: 1px solid rgba(10, 12, 14, 0.28);
+  color: var(--portal-bg);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.header.is-hero-opened .nav-cta:hover,
+.header:not(.is-hero-closed) .nav-cta:hover {
+  background: var(--portal-bg);
+  color: var(--portal-bone);
+  border-color: var(--portal-bg);
+}
+.header.is-hero-opened .menu-toggle,
+.header:not(.is-hero-closed) .menu-toggle {
+  color: var(--portal-bg);
+  border: 1px solid rgba(10, 12, 14, 0.25);
+}
+
+/* 3. SCROLLED STATE: Frosted Glass Navbar across the entire website */
+.header.is-scrolled {
+  padding: 16px 5%;
+  background: rgba(237, 231, 220, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(10, 12, 14, 0.08);
+  box-shadow: 0 4px 20px rgba(10, 12, 14, 0.04);
+  color: var(--portal-bg);
+}
+.header.is-scrolled .logo {
+  color: var(--portal-bg);
+}
+.header.is-scrolled .logo span {
+  color: var(--portal-bg);
+}
+.header.is-scrolled .wordmark {
+  color: rgba(10, 12, 14, 0.65);
+  border-left-color: rgba(10, 12, 14, 0.2);
+}
+.header.is-scrolled nav a {
+  color: var(--portal-bg);
+}
+.header.is-scrolled .nav-cta {
+  border-color: rgba(10, 12, 14, 0.28);
+  color: var(--portal-bg);
+}
+.header.is-scrolled .menu-toggle {
+  color: var(--portal-bg);
+  border-color: rgba(10, 12, 14, 0.25);
 }
 /* ==========================================================================
    UIC STUDIO — HERO PORTAL WITH CENTER BUSINESS CARD GATEWAY
@@ -2898,35 +3036,51 @@ dialog p {
 }
 @media (max-width: 700px) {
   .header {
-    padding: 24px 6%;
+    padding: 18px 6%;
   }
   .logo {
-    font-size: 44px;
+    font-size: 38px;
+    letter-spacing: -3px;
   }
   .menu-toggle {
     display: flex;
-    gap: 15px;
+    gap: 8px;
     align-items: center;
     margin-left: auto;
     background: none;
-    border: 1px solid #555;
+    border: 1px solid rgba(10, 12, 14, 0.25);
     border-radius: 25px;
-    color: #fff;
-    padding: 10px 16px;
+    color: inherit;
+    padding: 8px 14px;
     font-size: 12px;
+    font-weight: 600;
   }
   .header nav {
     display: none;
     position: absolute;
     left: 5%;
     right: 5%;
-    top: 85px;
-    padding: 25px;
-    background: #252a25;
-    border: 1px solid #555;
-    border-radius: 12px;
+    top: 76px;
+    padding: 22px;
+    background: #0A0C0E;
+    border: 1px solid rgba(237, 231, 220, 0.15);
+    border-radius: 16px;
     flex-direction: column;
     align-items: stretch;
+    gap: 16px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    z-index: 105;
+  }
+  .header nav a {
+    color: #EDE7DC !important;
+    padding: 8px 0;
+    font-size: 15px;
+  }
+  .header nav .nav-cta {
+    border-color: rgba(237, 231, 220, 0.25);
+    color: #EDE7DC !important;
+    justify-content: center;
+    margin-top: 6px;
   }
   .header nav.open {
     display: flex;

@@ -74,11 +74,26 @@ export function CinematicHero() {
     }, 220);
   };
 
+  // Sync with document state and external events
+  useEffect(() => {
+    document.documentElement.setAttribute('data-hero-opened', isOpened ? 'true' : 'false');
+  }, [isOpened]);
+
+  // External trigger (e.g. from navbar clicks)
+  useEffect(() => {
+    const handleExternalOpen = () => {
+      if (!isOpened) setIsOpened(true);
+    };
+    window.addEventListener('uic:hero-open', handleExternalOpen);
+    return () => window.removeEventListener('uic:hero-open', handleExternalOpen);
+  }, [isOpened]);
+
   // Natural scroll listener: scrolling down opens the pre-open portal
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 30 && !isOpened) {
         setIsOpened(true);
+        window.dispatchEvent(new CustomEvent('uic:hero-open'));
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
