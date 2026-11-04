@@ -6,8 +6,10 @@ export function CinematicHero() {
   const [isOpened, setIsOpened] = useState(false);
   const [isTapped, setIsTapped] = useState(false);
   const [cardTilt, setCardTilt] = useState({ rx: 0, ry: 0, gx: 50, gy: 50 });
+  const [figTilt, setFigTilt] = useState({ rx: 0, ry: 0 });
 
   const cardRef = useRef<HTMLDivElement>(null);
+  const figRef = useRef<HTMLDivElement>(null);
 
   // Synthesized luxury haptic chime (zero external audio files, zero lag)
   const playChime = useCallback(() => {
@@ -83,13 +85,29 @@ export function CinematicHero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isOpened]);
 
+  // 3D Parallax for the Visor Figure in the opened hero section
+  const handleFigMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const fig = figRef.current;
+    if (!fig) return;
+    const rect = fig.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rx = -((y - cy) / cy) * 6;
+    const ry = ((x - cx) / cx) * 8;
+    setFigTilt({ rx, ry });
+  };
 
+  const handleFigMouseLeave = () => {
+    setFigTilt({ rx: 0, ry: 0 });
+  };
 
   return (
     <section
-      className={`hero-ref-viewport ${isOpened ? 'portal-is-open' : 'portal-is-closed'}`}
+      className={`noir-hero-viewport ${isOpened ? 'portal-is-open' : 'portal-is-closed'}`}
       id="top"
-      aria-label="UIC Studio — Craft Your Identity"
+      aria-label="UIC Studio — Crafting presence that feels impossible to ignore"
     >
       {/* =====================================================================
           PHASE 1: PRE-OPEN BUSINESS CARD GATEWAY (The Entrance Stage)
@@ -175,7 +193,7 @@ export function CinematicHero() {
             }
           }}
         >
-          {/* Faded Cinematic Art Artwork on Card */}
+          {/* Faded Art Texture inside the Card */}
           <div className="card-art-texture" aria-hidden="true">
             <img
               src="/images/hero-card-art.jpg"
@@ -224,13 +242,13 @@ export function CinematicHero() {
             </div>
           </div>
 
-          {/* Card Center: "Welcome to Uic" in Syne Contact Greeting Font */}
+          {/* Card Center: "Welcome to Uic" */}
           <div className="card-welcome-center">
             <span className="card-welcome-lead">Welcome to</span>
             <strong className="card-welcome-title">Uic</strong>
           </div>
 
-          {/* Card Footer: Minimalist Metadata & Pass Info */}
+          {/* Card Footer */}
           <div className="card-bottom-row">
             <span className="card-meta-tag">UNIQUE IDENTITY CREATION</span>
             <span className="card-pass-code">№ 0089 // TAP PASS</span>
@@ -239,46 +257,89 @@ export function CinematicHero() {
       </div>
 
       {/* =====================================================================
-          PHASE 2: THE REDESIGNED HERO STAGE (Revealed upon Card Tap / Scroll)
+          PHASE 2: THE NOIR-INSPIRED REVEALED HERO STAGE
           ===================================================================== */}
-      {/* Dynamic Background with Motion Blur & Directional Light Streaks */}
-      <div className="hero-ref-backdrop" aria-hidden="true">
-        <div className="backdrop-motion-figure">
-          <img
-            src="/images/hero-tech-motion.jpg"
-            alt=""
-            className="backdrop-img-core"
-            loading="eager"
-            decoding="async"
-          />
-          <div className="backdrop-speed-streaks" />
-          <div className="backdrop-light-flare" />
+      <div className="noir-hero-container">
+        {/* Editorial Top Content: Kicker, Headline, Copy, Dual CTAs */}
+        <div className="noir-hero-content">
+          <div className="noir-kicker">
+            <span className="noir-kicker-dot" />
+            <span className="noir-kicker-text">Unique Identity Creation</span>
+          </div>
+
+          <h1 className="noir-headline">
+            Forging digital presence that
+            <br />
+            <span className="noir-highlight">refuses to be overlooked.</span>
+          </h1>
+
+          <p className="noir-editorial-copy">
+            Independent creative studio building memorable identities, high-conversion
+            digital experiences, and contactless NFC systems for ambitious companies.
+          </p>
+
+          <div className="noir-cta-group">
+            <a href="#contact" className="noir-btn-primary">
+              <span>Start Project</span>
+              <svg
+                className="btn-arrow"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+
+            <a href="#work" className="noir-btn-secondary">
+              <span>Explore Work</span>
+              <span className="btn-dot" />
+            </a>
+          </div>
         </div>
-        <div className="backdrop-obsidian-veil" />
-        <div className="backdrop-vignette" />
+
+        {/* Lower Visual Centerpiece: Giant UIC Watermark + Cyber Visor Figure */}
+        <div
+          ref={figRef}
+          className="noir-stage-visual"
+          onMouseMove={handleFigMouseMove}
+          onMouseLeave={handleFigMouseLeave}
+          style={{
+            transform: `perspective(1000px) rotateX(${figTilt.rx}deg) rotateY(${figTilt.ry}deg)`,
+          }}
+        >
+          {/* Monumental Transparent Watermark Letters across the lower backdrop */}
+          <div className="noir-watermark-wrap" aria-hidden="true">
+            <span className="watermark-letter">U</span>
+            <span className="watermark-letter">I</span>
+            <span className="watermark-letter">C</span>
+          </div>
+
+          {/* The Emerging Visor Figure */}
+          <div className="noir-figure-wrap">
+            <img
+              src="/images/hero-noir-figure.jpg"
+              alt="UIC Visionary"
+              className="noir-figure-img"
+              loading="eager"
+              decoding="async"
+            />
+            {/* Visor Neon Flare Glow */}
+            <div className="noir-visor-glow" aria-hidden="true" />
+            {/* Seamless Bottom Vignette Fade */}
+            <div className="noir-figure-fade" aria-hidden="true" />
+          </div>
+        </div>
+
+
       </div>
-
-      <div className="hero-ref-container">
-        {/* Top Headline: CRAFT */}
-        <div className="hero-ref-top-row">
-          <div className="hero-ref-headline-wrap">
-
-            <h1 className="hero-ref-title">
-              <span className="title-word-craft">CRAFT</span>
-            </h1>
-          </div>
-        </div>
-
-        {/* Middle Display Headline: // YOUR IDENTITY */}
-        <div className="hero-ref-mid-row">
-          <div className="hero-ref-title-subgroup">
-            <span className="title-slash">//</span>
-            <span className="title-word-your">YOUR</span>
-          </div>
-          <div className="title-word-presence">IDENTITY</div>
-        </div>
-
-        </div>
     </section>
   );
 }
