@@ -15,12 +15,15 @@
   font-weight: 800;
   letter-spacing: -4px;
   line-height: 1;
+  color: #2CFF05 !important;
+  text-decoration: none;
 }
 .logo span {
   font-size: 11px;
   vertical-align: top;
   letter-spacing: 0;
   margin-left: 5px;
+  color: #2CFF05 !important;
 }
 .productName,
 .back {
