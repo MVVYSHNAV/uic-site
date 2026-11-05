@@ -2136,8 +2136,12 @@ details small {
 }
 .nfc li svg {
   flex-shrink: 0;
-  color: inherit;
-  opacity: 0.8;
+  color: #2CFF05;
+  background: #141c18;
+  border-radius: 50%;
+  padding: 3px;
+  border: 1px solid rgba(44, 255, 5, 0.4);
+  box-shadow: 0 0 10px rgba(44, 255, 5, 0.18);
 }
 .tap-visual {
   height: 450px;
@@ -2149,23 +2153,38 @@ details small {
   left: 0;
   width: 270px;
   height: 170px;
-  border-radius: 10px;
-  background: #252c27;
-  color: var(--accent);
-  padding: 20px;
+  border-radius: 12px;
+  background: #141c18;
+  color: #2CFF05;
+  padding: 22px;
   transform: rotate(-13deg);
-  box-shadow: 10px 20px 35px #36402d40;
+  border: 1.5px solid rgba(44, 255, 5, 0.45);
+  box-shadow: 10px 20px 35px rgba(10, 18, 12, 0.45), 0 0 30px rgba(44, 255, 5, 0.22);
   z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.physical-card:hover {
+  transform: rotate(-9deg) translateY(-6px);
+  box-shadow: 14px 26px 42px rgba(10, 18, 12, 0.5), 0 0 38px rgba(44, 255, 5, 0.32);
 }
 .physical-card > span {
   font-size: 20px;
   font-weight: 700;
+  color: #2CFF05;
 }
 .physical-card strong {
   display: block;
   font-size: 27px;
   line-height: 1.1;
   margin-top: 10px;
+  color: #EDE7DC;
+}
+.card-nfc-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #2CFF05;
+  filter: drop-shadow(0 0 8px rgba(44, 255, 5, 0.7));
 }
 .physical-card small {
   font-size: 6px;
@@ -2173,26 +2192,19 @@ details small {
   position: absolute;
   bottom: 15px;
 }
-.physical-card b {
-  position: absolute;
-  right: 20px;
-  top: 65px;
-  font-size: 25px;
-  letter-spacing: -6px;
-}
 .phone {
   position: absolute;
   right: 5%;
   top: 0;
   height: 360px;
   width: 185px;
-  border: 6px solid #262b28;
+  border: 6px solid #141c18;
   background: #f9faf6;
   border-radius: 30px;
   padding: 35px 15px;
   text-align: center;
   transform: rotate(9deg);
-  box-shadow: 15px 20px 35px #36402d33;
+  box-shadow: 15px 20px 35px rgba(10, 18, 12, 0.28), 0 0 24px rgba(44, 255, 5, 0.1);
 }
 .phone-notch {
   position: absolute;
@@ -2200,52 +2212,84 @@ details small {
   left: 54px;
   width: 65px;
   height: 12px;
-  background: #262b28;
+  background: #141c18;
   border-radius: 20px;
 }
 .avatar {
   display: grid;
   place-items: center;
   margin: 0 auto 12px;
-  background: #c9d4bb;
+  background: rgba(44, 255, 5, 0.2);
+  color: #0A0C0E;
+  border: 1.5px solid #2CFF05;
+  box-shadow: 0 0 16px rgba(44, 255, 5, 0.3);
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-family: Georgia;
+  font-family: Georgia, serif;
   font-size: 25px;
+  font-weight: 700;
 }
 .phone > strong {
   font-size: 14px;
   display: block;
+  color: #0A0C0E;
 }
 .phone > small {
   font-size: 7px;
+  color: #666c63;
 }
 .phone-button,
 .phone-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   font-size: 8px;
-  padding: 13px 3px;
-  margin-top: 12px;
+  padding: 11px 4px;
+  margin-top: 10px;
   border-radius: 20px;
   background: #e8ecdf;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 .phone-button {
-  background: #27362c;
-  color: white;
+  background: #2CFF05;
+  color: #0A0C0E;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(44, 255, 5, 0.35);
+}
+.phone-button:hover {
+  background: #45ff24;
+}
+.phone-link:hover {
+  background: #141c18;
+  color: #2CFF05;
 }
 .phone-footer {
   display: block;
   margin-top: 25px;
   font-size: 5px !important;
   letter-spacing: 1px;
+  color: #889283;
 }
 .tap-rings {
   position: absolute;
   inset: 60px 0;
-  background: repeating-radial-gradient(circle at center, transparent 0 38px, #a5b29a55 39px 40px);
+  background: repeating-radial-gradient(circle at center, transparent 0 38px, rgba(44, 255, 5, 0.3) 39px 40px);
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 12px rgba(44, 255, 5, 0.35));
+}
+.nfc .pill {
+  transition: all 0.25s ease;
+}
+.nfc .pill:hover {
+  background: #141c18;
+  color: #2CFF05;
+  border: 1px solid #2CFF05;
+  box-shadow: 0 8px 24px rgba(44, 255, 5, 0.25);
 }
 .tap-label {
   position: absolute;

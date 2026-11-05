@@ -7,7 +7,7 @@ import styles from './CardStudio.module.css';
 
 const finishes = [
   { name: 'Midnight', background: '#222b28', ink: '#e3ff97' },
-  { name: 'Lime', background: '#d9ff65', ink: '#203027' },
+  { name: 'Lime', background: '#2CFF05', ink: '#0A0C0E' },
   { name: 'Bone', background: '#ede9df', ink: '#203027' },
   { name: 'Obsidian', background: '#121614', ink: '#ede7dc' },
 ];

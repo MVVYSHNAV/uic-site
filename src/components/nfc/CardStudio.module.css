@@ -478,8 +478,8 @@
   width: 100%;
   border: 0;
   border-radius: 30px;
-  background: #d9ff65;
-  color: #263022;
+  background: #2CFF05;
+  color: #0A0C0E;
   padding: 16px 22px;
   font-size: 12px;
   transition:
@@ -527,7 +527,7 @@
   margin: 25px 0;
 }
 .experience h2 em {
-  color: #d9ff65;
+  color: #2CFF05;
 }
 .experienceCopy > p:not(.eyebrow) {
   font-size: 13px;
@@ -676,10 +676,10 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  border: 1px solid #d9ff651c;
+  border: 1px solid rgba(44, 255, 5, 0.2);
   box-shadow:
-    0 0 0 40px #d9ff6505,
-    0 0 0 80px #d9ff6503;
+    0 0 0 40px rgba(44, 255, 5, 0.06),
+    0 0 0 80px rgba(44, 255, 5, 0.03);
   border-radius: 50%;
   z-index: 0;
 }
