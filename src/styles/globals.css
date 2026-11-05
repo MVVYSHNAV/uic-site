@@ -160,21 +160,29 @@ textarea:focus-visible {
   transition: color 0.2s ease;
 }
 .header.is-hero-closed:not(.is-scrolled) nav a:hover {
-  color: var(--portal-lime);
+  color: #2CFF05 !important;
 }
 .header.is-hero-closed:not(.is-scrolled) .nav-cta {
   border: 1px solid rgba(237, 231, 220, 0.32);
   color: var(--portal-bone);
   background: rgba(237, 231, 220, 0.05);
+  transition: all 0.25s ease;
 }
 .header.is-hero-closed:not(.is-scrolled) .nav-cta:hover {
-  background: var(--portal-lime);
-  color: var(--portal-bg);
-  border-color: var(--portal-lime);
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 4px 18px rgba(44, 255, 5, 0.25);
 }
 .header.is-hero-closed:not(.is-scrolled) .menu-toggle {
   color: var(--portal-bone);
   border: 1px solid rgba(237, 231, 220, 0.3);
+  transition: all 0.25s ease;
+}
+.header.is-hero-closed:not(.is-scrolled) .menu-toggle:hover {
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
 }
 
 /* 2. REVEALED HERO & DEFAULT SITE-WIDE: Obsidian text on Bone / Ivory */
@@ -199,11 +207,12 @@ textarea:focus-visible {
 .header:not(.is-hero-closed) nav a {
   color: var(--portal-bg);
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 .header.is-hero-opened nav a:hover,
 .header:not(.is-hero-closed) nav a:hover {
-  opacity: 0.6;
+  color: #2CFF05 !important;
+  opacity: 1;
 }
 .header.is-hero-opened .nav-cta,
 .header:not(.is-hero-closed) .nav-cta {
@@ -214,14 +223,22 @@ textarea:focus-visible {
 }
 .header.is-hero-opened .nav-cta:hover,
 .header:not(.is-hero-closed) .nav-cta:hover {
-  background: var(--portal-bg);
-  color: var(--portal-bone);
-  border-color: var(--portal-bg);
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 4px 18px rgba(44, 255, 5, 0.25);
 }
 .header.is-hero-opened .menu-toggle,
 .header:not(.is-hero-closed) .menu-toggle {
   color: var(--portal-bg);
   border: 1px solid rgba(10, 12, 14, 0.25);
+  transition: all 0.25s ease;
+}
+.header.is-hero-opened .menu-toggle:hover,
+.header:not(.is-hero-closed) .menu-toggle:hover {
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
 }
 
 /* 3. SCROLLED STATE: Frosted Glass Navbar across the entire website */
@@ -246,14 +263,31 @@ textarea:focus-visible {
 }
 .header.is-scrolled nav a {
   color: var(--portal-bg);
+  transition: color 0.2s ease;
+}
+.header.is-scrolled nav a:hover {
+  color: #2CFF05 !important;
 }
 .header.is-scrolled .nav-cta {
   border-color: rgba(10, 12, 14, 0.28);
   color: var(--portal-bg);
+  transition: all 0.25s ease;
+}
+.header.is-scrolled .nav-cta:hover {
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 4px 18px rgba(44, 255, 5, 0.25);
 }
 .header.is-scrolled .menu-toggle {
   color: var(--portal-bg);
   border-color: rgba(10, 12, 14, 0.25);
+  transition: all 0.25s ease;
+}
+.header.is-scrolled .menu-toggle:hover {
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
 }
 /* ==========================================================================
    UIC STUDIO — HERO PORTAL WITH CENTER BUSINESS CARD GATEWAY
@@ -979,18 +1013,20 @@ textarea:focus-visible {
 }
 
 .noir-btn-primary:hover {
-  background: #181d1b;
-  color: var(--portal-lime);
+  background: #100E09;
+  color: #2CFF05 !important;
+  border: 1.5px solid #2CFF05;
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(10, 12, 14, 0.25);
+  box-shadow: 0 14px 32px rgba(44, 255, 5, 0.3);
 }
 
 .noir-btn-primary .btn-arrow {
   color: var(--portal-lime);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .noir-btn-primary:hover .btn-arrow {
+  color: #2CFF05 !important;
   transform: translate(2px, -2px);
 }
 
@@ -1008,13 +1044,20 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-decoration: none;
-  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .noir-btn-secondary:hover {
-  border-color: #0A0C0E;
-  background: rgba(10, 12, 14, 0.04);
+  border-color: #2CFF05 !important;
+  background: #100E09 !important;
+  color: #2CFF05 !important;
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(44, 255, 5, 0.25);
+}
+
+.noir-btn-secondary:hover .btn-dot {
+  background: #2CFF05 !important;
+  box-shadow: 0 0 8px #2CFF05;
 }
 
 .btn-dot {
@@ -1302,8 +1345,8 @@ h2 {
 .catalogue-item:hover .catalogue-plate,
 .catalogue-item:focus-visible .catalogue-plate {
   transform: translateY(-8px);
-  box-shadow: 0 20px 42px rgba(15, 20, 18, 0.18);
-  border-color: rgba(0, 0, 0, 0.28);
+  box-shadow: 0 20px 42px rgba(15, 20, 18, 0.18), 0 0 24px rgba(44, 255, 5, 0.18);
+  border-color: #2CFF05;
 }
 
 /* Plate Media / Cover Image */
@@ -1427,9 +1470,17 @@ h2 {
   flex-shrink: 0;
 }
 
+.catalogue-item:hover .plate-client {
+  color: #2CFF05 !important;
+  text-shadow: 0 0 10px rgba(44, 255, 5, 0.45);
+}
+
 .catalogue-item:hover .plate-arrow {
   transform: translate(2px, -2px);
-  background: #ffffff;
+  background: #100E09;
+  color: #2CFF05 !important;
+  border: 1.5px solid #2CFF05;
+  box-shadow: 0 4px 14px rgba(44, 255, 5, 0.3);
 }
 
 /* Generated Plate Visual Art for Concept Studies */
@@ -1781,6 +1832,12 @@ h2 {
   font-family: monospace;
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.project:hover .cover-client-label {
+  color: #2CFF05 !important;
+  text-shadow: 0 0 10px rgba(44, 255, 5, 0.45);
 }
 
 .cover-badge-pill {
@@ -1815,6 +1872,12 @@ h2 {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
   max-width: 82%;
   margin: 0;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.project:hover .cover-bottom-meta strong {
+  color: #2CFF05 !important;
+  text-shadow: 0 2px 16px rgba(44, 255, 5, 0.5);
 }
 
 .project-cover-content .project-arrow {
@@ -2012,6 +2075,18 @@ h2 {
   line-height: 1.8;
   margin-top: 30px;
 }
+.text-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.text-link:hover {
+  color: #2CFF05 !important;
+  text-shadow: 0 0 10px rgba(44, 255, 5, 0.35);
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -2019,17 +2094,23 @@ h2 {
   gap: 35px;
   background: var(--ink);
   color: white;
-  border: 0;
+  border: 1.5px solid transparent;
   border-radius: 40px;
   padding: 18px 28px;
   font-size: 13px;
   margin-top: 30px;
   transition:
-    background 0.2s,
-    transform 0.2s;
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
 }
 .pill:hover {
-  background: #41483a;
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 10px 26px rgba(44, 255, 5, 0.28);
   transform: translateY(-2px);
 }
 details {
@@ -2047,6 +2128,17 @@ summary {
   cursor: pointer;
   font-size: 23px;
   letter-spacing: -0.7px;
+  transition: color 0.2s ease;
+}
+summary:hover {
+  color: #100E09;
+}
+summary:hover > span,
+summary:hover > b {
+  color: #2CFF05 !important;
+}
+summary:hover .service-expand-icon {
+  stroke: #2CFF05 !important;
 }
 summary::-webkit-details-marker {
   display: none;
@@ -2239,11 +2331,15 @@ details small {
   box-shadow: 0 4px 14px rgba(44, 255, 5, 0.35);
 }
 .phone-button:hover {
-  background: #45ff24;
+  background: #100E09;
+  color: #2CFF05;
+  border: 1px solid #2CFF05;
+  box-shadow: 0 4px 16px rgba(44, 255, 5, 0.4);
 }
 .phone-link:hover {
-  background: #141c18;
+  background: #100E09;
   color: #2CFF05;
+  border: 1px solid #2CFF05;
 }
 .phone-footer {
   display: block;
@@ -2264,10 +2360,10 @@ details small {
   transition: all 0.25s ease;
 }
 .nfc .pill:hover {
-  background: #141c18;
-  color: #2CFF05;
-  border: 1px solid #2CFF05;
-  box-shadow: 0 8px 24px rgba(44, 255, 5, 0.25);
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border: 1.5px solid #2CFF05 !important;
+  box-shadow: 0 10px 26px rgba(44, 255, 5, 0.28);
 }
 .tap-label {
   position: absolute;
@@ -2686,7 +2782,12 @@ details small {
   stroke: currentColor;
 }
 .contact h2:hover .big-arrow {
+  color: #2CFF05 !important;
   transform: translate(8px, -8px);
+}
+.contact h2:hover .contact-greeting-rotator {
+  color: #2CFF05 !important;
+  text-shadow: 0 4px 20px rgba(44, 255, 5, 0.45);
 }
 .contact-greeting-wrapper {
   display: inline-flex;
@@ -2777,9 +2878,11 @@ details small {
   transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
 }
 .contact .pill:hover {
-  background: #000000;
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border: 1.5px solid #2CFF05 !important;
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(21, 32, 27, 0.26);
+  box-shadow: 0 14px 32px rgba(44, 255, 5, 0.32);
 }
 .form-note {
   font-size: 10px;
@@ -2799,6 +2902,12 @@ footer {
   background: #17201c;
   color: #dce5dc;
 }
+footer a {
+  transition: color 0.2s ease;
+}
+footer a:hover {
+  color: #2CFF05 !important;
+}
 footer p {
   font-size: 10px;
   line-height: 1.8;
@@ -2812,6 +2921,10 @@ footer > a:last-child {
   font-size: 9px;
   letter-spacing: 1px;
   margin-left: 30px;
+  transition: color 0.2s ease;
+}
+footer > a:last-child:hover {
+  color: #2CFF05 !important;
 }
 dialog {
   max-width: 660px;
@@ -2957,9 +3070,13 @@ dialog p {
   background: transparent;
   color: var(--ink);
   border: 1px solid rgba(32, 35, 35, 0.25);
+  transition: all 0.25s ease;
 }
 .pill-subtle:hover {
-  background: rgba(32, 35, 35, 0.05);
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 6px 18px rgba(44, 255, 5, 0.25);
 }
 .dialog-close {
   position: absolute;
@@ -2968,6 +3085,12 @@ dialog p {
   border: 0;
   background: none;
   font-size: 30px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.dialog-close:hover {
+  color: #2CFF05 !important;
+  transform: scale(1.1);
 }
 .project-tags {
   font-size: 10px;
@@ -3099,12 +3222,22 @@ dialog p {
     color: #EDE7DC !important;
     padding: 8px 0;
     font-size: 15px;
+    transition: color 0.2s ease;
+  }
+  .header nav a:hover {
+    color: #2CFF05 !important;
   }
   .header nav .nav-cta {
     border-color: rgba(237, 231, 220, 0.25);
     color: #EDE7DC !important;
     justify-content: center;
     margin-top: 6px;
+    transition: all 0.25s ease;
+  }
+  .header nav .nav-cta:hover {
+    background: #100E09 !important;
+    color: #2CFF05 !important;
+    border-color: #2CFF05 !important;
   }
   .header nav.open {
     display: flex;

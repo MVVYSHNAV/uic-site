@@ -185,9 +185,9 @@
 }
 
 .chip:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(44, 255, 5, 0.35);
-  color: #ffffff;
+  background: rgba(44, 255, 5, 0.12);
+  border-color: #2CFF05;
+  color: #2CFF05;
   transform: translateY(-1px);
 }
 
@@ -200,9 +200,14 @@
 }
 
 .chipActive:hover {
-  background: #45ff24;
-  border-color: #45ff24;
-  color: #0A0C0E;
+  background: #100E09;
+  border-color: #2CFF05;
+  color: #2CFF05;
+  box-shadow: 0 4px 14px rgba(44, 255, 5, 0.3);
+}
+
+.chipActive:hover .chipDot {
+  background: #2CFF05;
 }
 
 .chipDot {
@@ -227,7 +232,7 @@
   width: 100%;
   background: #2CFF05;
   color: #0A0C0E;
-  border: 0;
+  border: 1.5px solid #2CFF05;
   border-radius: 30px;
   padding: 16px 24px;
   font-size: 13.5px;
@@ -240,9 +245,15 @@
 }
 
 .submitButton:hover {
-  background: #45ff24;
+  background: #100E09;
+  color: #2CFF05;
+  border-color: #2CFF05;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(44, 255, 5, 0.32);
+  box-shadow: 0 12px 28px rgba(44, 255, 5, 0.4);
+}
+
+.submitButton:hover .buttonArrow {
+  color: #2CFF05;
 }
 
 .submitButton:active {
@@ -252,7 +263,7 @@
 .buttonArrow {
   font-size: 16px;
   font-weight: 800;
-  transition: transform 0.22s ease;
+  transition: transform 0.22s ease, color 0.22s ease;
 }
 
 .submitButton:hover .buttonArrow {
@@ -322,8 +333,9 @@
 }
 
 .downloadAgain:hover {
-  background: #2CFF05;
-  color: #0A0C0E;
+  background: #100E09;
+  color: #2CFF05;
+  border-color: #2CFF05;
 }
 
 @keyframes fadeIn {

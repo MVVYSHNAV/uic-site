@@ -48,6 +48,11 @@
   letter-spacing: 0;
   border-bottom: 1px solid #adb2a5;
   padding-bottom: 5px;
+  transition: all 0.2s ease;
+}
+.back:hover {
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
 }
 .intro {
   text-align: center;
@@ -367,6 +372,13 @@
   font-size: 11px;
   color: #45513d;
   background: #ffffff55;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.flipButton:hover {
+  background: #100E09;
+  color: #2CFF05;
+  border-color: #2CFF05;
 }
 .previewNote {
   text-align: center;
@@ -458,6 +470,12 @@
   border-radius: 7px;
   background: transparent;
   color: #58604f;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.layouts button:hover {
+  border-color: #2CFF05;
+  color: #2CFF05;
 }
 .layouts button[aria-pressed='true'] {
   background: #26352a;
@@ -492,20 +510,27 @@
   justify-content: space-between;
   gap: 35px;
   width: 100%;
-  border: 0;
+  border: 1.5px solid #2CFF05;
   border-radius: 30px;
   background: #2CFF05;
   color: #0A0C0E;
   padding: 16px 22px;
   font-size: 12px;
+  cursor: pointer;
   transition:
     transform 0.2s,
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
     box-shadow 0.2s;
 }
 .save:hover,
 .demoButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px #172a1814;
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 8px 24px rgba(44, 255, 5, 0.28);
 }
 .note {
   font-size: 9px;
@@ -786,6 +811,13 @@
 .closing .demoButton {
   background: #26352a;
   color: #f1f5eb;
+  border-color: #26352a;
+}
+.closing .demoButton:hover {
+  background: #100E09 !important;
+  color: #2CFF05 !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 8px 24px rgba(44, 255, 5, 0.28);
 }
 .footer {
   background: #eceee5;
@@ -803,6 +835,10 @@
 .footer > a:last-child {
   margin-left: auto;
   font-size: 10px;
+  transition: color 0.2s ease;
+}
+.footer > a:last-child:hover {
+  color: #2CFF05 !important;
 }
 .studio button:focus-visible,
 .studio a:focus-visible,
