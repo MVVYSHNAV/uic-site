@@ -62,7 +62,7 @@ export function CinematicHero() {
     setCardTilt({ rx: 0, ry: 0, gx: 50, gy: 50 });
   };
 
-  // Tap business card to open portal & reveal the hero page
+  // Tap business card to open portal & reveal the hero page (slow, deliberate 2s luxury transition)
   const handleCardTap = () => {
     if (isOpened) return;
     setIsTapped(true);
@@ -70,8 +70,12 @@ export function CinematicHero() {
 
     setTimeout(() => {
       setIsOpened(true);
+      window.dispatchEvent(new CustomEvent('uic:hero-open'));
+    }, 320);
+
+    setTimeout(() => {
       setIsTapped(false);
-    }, 220);
+    }, 2000);
   };
 
   // Sync with document state and external events

@@ -269,7 +269,7 @@ textarea:focus-visible {
   pointer-events: auto;
   perspective: 1200px;
   background: var(--portal-bg);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portal-card-gateway.is-opened {
@@ -569,18 +569,18 @@ textarea:focus-visible {
 .portal-card-ripple.active .ring-1 {
   border: 2px solid rgba(44, 255, 5, 0.9);
   box-shadow: 0 0 32px rgba(44, 255, 5, 0.8);
-  animation: ripplePop 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation: ripplePop 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .portal-card-ripple.active .ring-2 {
   border: 2px solid rgba(237, 231, 220, 0.85);
   box-shadow: 0 0 28px rgba(237, 231, 220, 0.7);
-  animation: ripplePop 1.5s 0.14s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation: ripplePop 2s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .portal-card-ripple.active .ring-3 {
   border: 1.5px solid rgba(44, 255, 5, 0.7);
-  animation: ripplePop 1.5s 0.28s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  animation: ripplePop 2s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes ripplePop {
@@ -646,7 +646,7 @@ textarea:focus-visible {
 
 .portal-card-gateway.is-tapped .hero-business-card {
   transform: rotate(-13deg) scale(0.96) !important;
-  transition: transform 0.12s ease;
+  transition: transform 0.35s ease;
 }
 
 /* Minimalist Card Finish: Pure Premium Black #100E09 */
@@ -846,7 +846,7 @@ textarea:focus-visible {
   transform: scale(1) translateY(0);
   filter: blur(0px);
   pointer-events: auto;
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Container */
