@@ -82,7 +82,7 @@ export function SiteHeader() {
       <span className="wordmark">
         UNIQUE IDENTITY
         <br />
-        CRAFTING
+        CRAFT
       </span>
       <button
         className="menu-toggle"

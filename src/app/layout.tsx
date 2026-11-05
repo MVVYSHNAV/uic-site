@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 export const metadata: Metadata = {
   title: 'UIC — Make your presence felt.',
   description:
-    'Unique Identity Crafting. Brand identities, websites, business systems and NFC experiences, built around what makes you different.',
+    'Unique Identity Craft. Brand identities, websites, business systems and NFC experiences, built around what makes you different.',
 };
 
 export const viewport: Viewport = { themeColor: '#101112' };

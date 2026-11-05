@@ -265,7 +265,7 @@ export function CinematicHero() {
 
           {/* Card Footer */}
           <div className="card-bottom-row">
-            <span className="card-meta-tag">UNIQUE IDENTITY CREATION</span>
+            <span className="card-meta-tag">UNIQUE IDENTITY CRAFT</span>
             <span className="card-pass-code">№ 0089 // TAP PASS</span>
           </div>
         </div>
@@ -279,7 +279,7 @@ export function CinematicHero() {
         <div className="noir-hero-content">
           <div className="noir-kicker">
             <span className="noir-kicker-dot" />
-            <span className="noir-kicker-text">Unique Identity Creation</span>
+            <span className="noir-kicker-text">Unique Identity Craft</span>
           </div>
 
           <h1 className="noir-headline">

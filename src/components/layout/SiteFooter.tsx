@@ -5,7 +5,7 @@ export function SiteFooter() {
         uic<span>®</span>
       </a>
       <p>
-        Unique Identity Crafting.
+        Unique Identity Craft.
         <br />
         Distinctive by intention.
       </p>
