@@ -229,8 +229,7 @@ export function CinematicHero() {
           {/* Card Header: Brand Monogram + NFC */}
           <div className="card-top-row">
             <div className="card-brand-lockup">
-              <span className="card-brand-text">Uic</span>
-              <span className="card-brand-reg">®</span>
+              <span className="card-brand-text">uic<span>®</span></span>
             </div>
 
             <div className="card-nfc-mark" title="NFC Enabled">
@@ -252,10 +251,12 @@ export function CinematicHero() {
             </div>
           </div>
 
-          {/* Card Center: "Welcome to Uic" */}
+          {/* Card Center: "Welcome to uic®" */}
           <div className="card-welcome-center">
             <span className="card-welcome-lead">Welcome to</span>
-            <strong className="card-welcome-title">Uic</strong>
+            <strong className="card-welcome-title">
+              uic<span>®</span>
+            </strong>
           </div>
 
           {/* Card Footer */}
