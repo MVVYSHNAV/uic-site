@@ -1,11 +1,12 @@
 /* NFC Card-inspired tactile brief card */
 .formCard {
   background: linear-gradient(155deg, #242e27 0%, #161e19 100%);
-  border: 1.5px solid rgba(217, 255, 101, 0.22);
+  border: 1.5px solid rgba(44, 255, 5, 0.22);
   border-radius: 20px;
   padding: 34px 34px 28px;
   box-shadow:
     0 24px 55px rgba(10, 18, 12, 0.35),
+    0 0 24px rgba(44, 255, 5, 0.08),
     0 1px 1px rgba(255, 255, 255, 0.08) inset;
   color: #f2f5ec;
   position: relative;
@@ -26,7 +27,7 @@
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -1px;
-  color: #d6fa59;
+  color: #2CFF05;
   display: flex;
   align-items: baseline;
   gap: 2px;
@@ -49,7 +50,7 @@
   font-size: 14px;
   font-weight: 800;
   letter-spacing: -2px;
-  color: #d6fa59;
+  color: #2CFF05;
 }
 
 /* Two-column layout */
@@ -129,14 +130,14 @@
 .input:hover,
 .textarea:hover {
   background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(214, 250, 89, 0.35) !important;
+  border-color: rgba(44, 255, 5, 0.35) !important;
 }
 
 .input:focus,
 .textarea:focus {
   background: rgba(255, 255, 255, 0.09) !important;
-  border-color: #d6fa59 !important;
-  box-shadow: 0 0 0 3px rgba(214, 250, 89, 0.18) !important;
+  border-color: #2CFF05 !important;
+  box-shadow: 0 0 0 3px rgba(44, 255, 5, 0.18) !important;
 }
 
 /* Autofill styling fix for Chrome / Edge / Safari */
@@ -146,7 +147,7 @@
   -webkit-box-shadow: 0 0 0 1000px #212a23 inset !important;
   -webkit-text-fill-color: #f2f5ec !important;
   caret-color: #f2f5ec !important;
-  border-color: #d6fa59 !important;
+  border-color: #2CFF05 !important;
 }
 
 .textarea {
@@ -185,23 +186,23 @@
 
 .chip:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(214, 250, 89, 0.35);
+  border-color: rgba(44, 255, 5, 0.35);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .chipActive {
-  background: #d6fa59;
-  color: #141c18;
-  border-color: #d6fa59;
+  background: #2CFF05;
+  color: #0A0C0E;
+  border-color: #2CFF05;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(214, 250, 89, 0.25);
+  box-shadow: 0 4px 14px rgba(44, 255, 5, 0.25);
 }
 
 .chipActive:hover {
-  background: #e4ff74;
-  border-color: #e4ff74;
-  color: #141c18;
+  background: #45ff24;
+  border-color: #45ff24;
+  color: #0A0C0E;
 }
 
 .chipDot {
@@ -224,24 +225,24 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background: #d6fa59;
-  color: #141c18;
+  background: #2CFF05;
+  color: #0A0C0E;
   border: 0;
   border-radius: 30px;
   padding: 16px 24px;
   font-size: 13.5px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 22px rgba(214, 250, 89, 0.22);
+  box-shadow: 0 8px 22px rgba(44, 255, 5, 0.22);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 8px;
   font-family: inherit;
 }
 
 .submitButton:hover {
-  background: #e4ff74;
+  background: #45ff24;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(214, 250, 89, 0.32);
+  box-shadow: 0 12px 28px rgba(44, 255, 5, 0.32);
 }
 
 .submitButton:active {
@@ -268,8 +269,8 @@
 
 /* Success Card */
 .successBanner {
-  background: rgba(214, 250, 89, 0.12);
-  border: 1.5px solid #d6fa59;
+  background: rgba(44, 255, 5, 0.12);
+  border: 1.5px solid #2CFF05;
   border-radius: 12px;
   padding: 16px;
   margin-top: 15px;
@@ -285,7 +286,7 @@
   gap: 8px;
   font-size: 13px;
   font-weight: 700;
-  color: #d6fa59;
+  color: #2CFF05;
 }
 
 .successIcon {
@@ -294,8 +295,8 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #d6fa59;
-  color: #141c18;
+  background: #2CFF05;
+  color: #0A0C0E;
   font-size: 11px;
   font-weight: 800;
 }
@@ -309,20 +310,20 @@
 .downloadAgain {
   align-self: flex-start;
   background: transparent;
-  border: 1px solid rgba(214, 250, 89, 0.5);
+  border: 1px solid rgba(44, 255, 5, 0.5);
   border-radius: 20px;
   padding: 5px 12px;
   font-size: 11px;
   font-weight: 600;
-  color: #d6fa59;
+  color: #2CFF05;
   cursor: pointer;
   transition: background 0.2s;
   font-family: inherit;
 }
 
 .downloadAgain:hover {
-  background: #d6fa59;
-  color: #141c18;
+  background: #2CFF05;
+  color: #0A0C0E;
 }
 
 @keyframes fadeIn {
