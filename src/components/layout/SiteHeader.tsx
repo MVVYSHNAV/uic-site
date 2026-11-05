@@ -30,10 +30,13 @@ export function SiteHeader() {
 
     // Check initial state
     if (typeof window !== 'undefined') {
-      if (window.scrollY > 30 || document.documentElement.getAttribute('data-hero-opened') === 'true') {
+      const isOpened = document.documentElement.getAttribute('data-hero-opened') === 'true';
+      if (isOpened) {
         setIsHeroClosed(false);
+      } else {
+        setIsHeroClosed(true);
       }
-      if (window.scrollY > 20) {
+      if (window.scrollY > 20 && isOpened) {
         setIsScrolled(true);
       }
     }

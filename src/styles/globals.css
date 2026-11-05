@@ -298,9 +298,12 @@ textarea:focus-visible {
    PRE-OPEN BUSINESS CARD GATEWAY (Begins CLOSED, Opens on Tap or Scroll)
    ========================================================================== */
 .portal-card-gateway {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 50;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,7 +311,7 @@ textarea:focus-visible {
   pointer-events: auto;
   perspective: 1200px;
   background: radial-gradient(ellipse 85% 75% at 50% 48%, #FFFFFF 0%, #F5F4EB 60%, #EBE6D8 100%);
-  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), filter 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portal-card-gateway.is-opened {
@@ -316,6 +319,8 @@ textarea:focus-visible {
   transform: scale(2.2);
   filter: blur(20px);
   pointer-events: none;
+  visibility: hidden;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), filter 1.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 1.8s;
 }
 
 /* Faded Cinematic Skyline Artwork for Pre-Open Hero Section (Disabled for pure luxury white background) */

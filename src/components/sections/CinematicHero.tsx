@@ -79,9 +79,29 @@ export function CinematicHero() {
     }, 2000);
   };
 
-  // Sync with document state and external events
+  // Sync with document state, lock body scroll when closed, and manage scroll restoration on refresh
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
     document.documentElement.setAttribute('data-hero-opened', isOpened ? 'true' : 'false');
+
+    if (!isOpened) {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
   }, [isOpened]);
 
   // External trigger (e.g. from navbar clicks)
@@ -93,16 +113,38 @@ export function CinematicHero() {
     return () => window.removeEventListener('uic:hero-open', handleExternalOpen);
   }, [isOpened]);
 
-  // Natural scroll listener: scrolling down opens the pre-open portal
+  // Natural wheel & touch swipe detection: scrolling downwards triggers the entrance transition
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30 && !isOpened) {
-        setIsOpened(true);
-        window.dispatchEvent(new CustomEvent('uic:hero-open'));
+    if (isOpened) return;
+
+    let touchStartY = 0;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY > 15 && !isOpened) {
+        handleCardTap();
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchY = e.touches[0].clientY;
+      if (touchStartY - touchY > 30 && !isOpened) {
+        handleCardTap();
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, [isOpened]);
 
   // 3D Parallax for the Visor Figure in the opened hero section
