@@ -180,7 +180,11 @@ function stepS(sp: SpringType, dt: number): boolean {
   return true;
 }
 
-export function HairlineBridge() {
+export interface HairlineBridgeProps {
+  embedded?: boolean;
+}
+
+export function HairlineBridge({ embedded = false }: HairlineBridgeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [statusText, setStatusText] = useState('rest');
@@ -195,7 +199,6 @@ export function HairlineBridge() {
     const P = proj(C);
     const front = facing(C);
 
-    // Clear previous
     svg.replaceChildren();
 
     const NS = 'http://www.w3.org/2000/svg';
@@ -401,6 +404,19 @@ export function HairlineBridge() {
     };
   }, []);
 
+  if (embedded) {
+    return (
+      <div ref={containerRef} className="card-hairline-canvas" aria-hidden="true">
+        <svg
+          ref={svgRef}
+          viewBox="0 0 400 320"
+          role="img"
+          aria-label="Hairline secure transaction bridge on identity card"
+        />
+      </div>
+    );
+  }
+
   return (
     <div ref={containerRef} className="portal-hairline-bridge" aria-hidden="true">
       <div className="portal-hairline-hud">
@@ -416,4 +432,3 @@ export function HairlineBridge() {
     </div>
   );
 }
-

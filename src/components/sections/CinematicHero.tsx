@@ -150,9 +150,6 @@ export function CinematicHero() {
           <div className="portal-gateway-art-vignette" />
         </div>
 
-        {/* Hairline Isometric Transaction Bridge Figure in Background */}
-        <HairlineBridge />
-
         {/* Minimal Atmospheric Passing Signals */}
         <div className="portal-signal-field" aria-hidden="true">
           <div className="signal-track track-h1">
@@ -223,6 +220,9 @@ export function CinematicHero() {
 
           {/* Fine tactile micro-grain overlay */}
           <div className="card-grain-layer" aria-hidden="true" />
+
+          {/* Interactive Hairline Secure Transaction Bridge Canvas on Card Face */}
+          <HairlineBridge embedded />
 
           {/* Minimalist Art Details: Corner crosses */}
           <div className="card-art-cross cross-tl" aria-hidden="true">+</div>
