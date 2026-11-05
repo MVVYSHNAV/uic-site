@@ -208,16 +208,7 @@ export function CinematicHero() {
             }
           }}
         >
-          {/* Faded Art Texture inside the Card */}
-          <div className="card-art-texture" aria-hidden="true">
-            <img
-              src="/images/hero-card-art.jpg"
-              alt=""
-              className="card-art-texture-img"
-              loading="eager"
-            />
-            <div className="card-art-texture-veil" />
-          </div>
+
 
           {/* Dynamic specular light reflection sheen */}
           <div className="card-glare-layer" aria-hidden="true" />
