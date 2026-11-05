@@ -1,3 +1,5 @@
+import { ChevronDown } from 'lucide-react';
+
 export function ServicesSection() {
   return (
     <section className="services section" id="services">
@@ -37,22 +39,13 @@ export function ServicesSection() {
         <div className="service-list">
           <details open={true}>
             <summary>
-              <span>01</span> Brand & identity{' '}
-              <svg
+              <span>01</span> Brand &amp; identity
+              <ChevronDown
                 className="service-expand-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                size={18}
+                strokeWidth={2.2}
                 aria-hidden="true"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              />
             </summary>
             <div>
               <p>
@@ -64,22 +57,13 @@ export function ServicesSection() {
           </details>
           <details>
             <summary>
-              <span>02</span> Websites & experiences{' '}
-              <svg
+              <span>02</span> Websites &amp; experiences
+              <ChevronDown
                 className="service-expand-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                size={18}
+                strokeWidth={2.2}
                 aria-hidden="true"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              />
             </summary>
             <div>
               <p>
@@ -91,22 +75,13 @@ export function ServicesSection() {
           </details>
           <details>
             <summary>
-              <span>03</span> ERP & business systems{' '}
-              <svg
+              <span>03</span> ERP &amp; business systems
+              <ChevronDown
                 className="service-expand-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                size={18}
+                strokeWidth={2.2}
                 aria-hidden="true"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              />
             </summary>
             <div>
               <p>
@@ -118,22 +93,13 @@ export function ServicesSection() {
           </details>
           <details>
             <summary>
-              <span>04</span> NFC & connected products{' '}
-              <svg
+              <span>04</span> NFC &amp; connected products
+              <ChevronDown
                 className="service-expand-icon"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                size={18}
+                strokeWidth={2.2}
                 aria-hidden="true"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              />
             </summary>
             <div>
               <p>

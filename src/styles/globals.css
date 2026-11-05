@@ -2125,22 +2125,23 @@ summary {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   padding: 27px 0;
   cursor: pointer;
   font-size: 23px;
   letter-spacing: -0.7px;
   transition: color 0.2s ease;
+  user-select: none;
 }
 summary:hover {
   color: #100E09;
 }
-summary:hover > span,
-summary:hover > b {
+summary:hover > span {
   color: #2CFF05 !important;
 }
 summary:hover .service-expand-icon {
   stroke: #2CFF05 !important;
+  color: #2CFF05 !important;
 }
 summary::-webkit-details-marker {
   display: none;
@@ -2149,15 +2150,19 @@ summary > span {
   font-size: 10px;
   letter-spacing: 0;
   color: var(--muted);
+  font-family: monospace;
+  font-weight: 600;
 }
-summary > b {
+.service-expand-icon {
   margin-left: auto;
-  font-size: 23px;
-  font-weight: 400;
-  transition: transform 0.2s;
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease, color 0.2s ease;
 }
-details[open] summary > b {
-  transform: rotate(45deg);
+details[open] .service-expand-icon {
+  transform: rotate(180deg);
+  color: #2CFF05;
+  stroke: #2CFF05;
 }
 details > div {
   padding: 0 25px 30px 40px;
