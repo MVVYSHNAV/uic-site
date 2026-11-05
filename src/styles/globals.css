@@ -329,17 +329,32 @@ textarea:focus-visible {
   inset: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: clamp(20px, 6vw, 110px);
   pointer-events: none;
   z-index: 2;
   overflow: hidden;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .portal-hairline-bridge svg {
-  width: min(92vw, 840px);
-  max-height: 85vh;
+  width: min(42vw, 560px);
+  max-height: 72vh;
   overflow: visible;
-  filter: drop-shadow(0 20px 45px rgba(10, 12, 14, 0.08));
+  filter: drop-shadow(0 16px 36px rgba(10, 12, 14, 0.06));
+  transform: translateY(14px);
+}
+
+@media (max-width: 1023px) {
+  .portal-hairline-bridge {
+    justify-content: center;
+    padding-right: 0;
+    opacity: 0.25;
+  }
+  .portal-hairline-bridge svg {
+    width: min(85vw, 480px);
+    transform: translateY(30px);
+  }
 }
 
 .portal-hairline-bridge :where(path, polygon, ellipse, line) {
@@ -365,14 +380,14 @@ textarea:focus-visible {
 .portal-hairline-hud {
   position: absolute;
   top: 92px;
-  right: 36px;
+  right: clamp(20px, 6vw, 110px);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(10, 12, 14, 0.7);
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(10, 12, 14, 0.15);
@@ -383,6 +398,15 @@ textarea:focus-visible {
   gap: 8px;
   z-index: 5;
   box-shadow: 0 4px 18px rgba(10, 12, 14, 0.06);
+}
+
+@media (max-width: 768px) {
+  .portal-hairline-hud {
+    top: 76px;
+    right: 20px;
+    font-size: 10px;
+    padding: 4px 10px;
+  }
 }
 
 .portal-hairline-hud .hud-led {
