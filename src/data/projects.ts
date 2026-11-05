@@ -127,7 +127,7 @@ export const projects: Project[] = [
     externalLabel: 'Visit Live Website',
     badge: 'LIVE CLIENT WEBSITE',
     year: '2025',
-    accent: '#d9ff65',
+    accent: '#2CFF05',
     mockupType: 'ankithmadhav',
   },
   {
