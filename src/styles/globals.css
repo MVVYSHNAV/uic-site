@@ -76,21 +76,34 @@ textarea:focus-visible {
 }
 
 .logo {
-  font-size: 46px;
+  font-size: 34px;
   font-weight: 800;
-  letter-spacing: -4px;
+  letter-spacing: -2.5px;
   line-height: 1;
   font-family: 'Manrope', sans-serif;
   text-decoration: none;
   color: #2CFF05 !important;
-  transition: opacity 0.3s ease;
+  background: #100E09;
+  border: 1.5px solid #2CFF05;
+  border-radius: 9px;
+  padding: 6px 14px 7px 12px;
+  display: inline-flex;
+  align-items: baseline;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(44, 255, 5, 0.3);
+  border-color: #2CFF05;
 }
 
 .logo span {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0;
   vertical-align: top;
-  margin: 6px 0 0 4px;
+  margin: 0 0 0 4px;
   display: inline-block;
   color: #2CFF05 !important;
 }
@@ -3048,8 +3061,10 @@ dialog p {
     padding: 18px 6%;
   }
   .logo {
-    font-size: 38px;
-    letter-spacing: -3px;
+    font-size: 26px;
+    letter-spacing: -2px;
+    padding: 5px 11px 6px 9px;
+    border-radius: 7px;
   }
   .menu-toggle {
     display: flex;
