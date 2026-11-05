@@ -744,20 +744,27 @@ textarea:focus-visible {
 }
 
 .card-brand-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 28px;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.04em;
-  color: #2CFF05;
+  letter-spacing: -2px;
+  color: #2CFF05 !important;
+  -webkit-text-fill-color: #2CFF05;
+  -webkit-text-stroke: 0.8px #ffffff;
+  paint-order: stroke fill;
   text-shadow: none;
 }
 
 .card-brand-reg {
-  font-size: 11px;
-  font-weight: 700;
-  color: #2CFF05;
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #2CFF05 !important;
+  -webkit-text-fill-color: #2CFF05;
+  -webkit-text-stroke: 0.35px #ffffff;
   vertical-align: super;
+  margin-left: 2px;
 }
 
 .card-nfc-mark {
@@ -791,12 +798,15 @@ textarea:focus-visible {
 }
 
 .card-welcome-title {
-  font-family: 'Syne', 'Noto Serif Kannada', 'Noto Serif Devanagari', 'Noto Serif Malayalam', 'Noto Serif Tamil', 'Noto Serif Telugu', Georgia, serif;
-  font-size: clamp(46px, 5.5vw, 62px);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 5.8vw, 64px);
   font-weight: 800;
   line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: #2CFF05;
+  letter-spacing: -3.5px;
+  color: #2CFF05 !important;
+  -webkit-text-fill-color: #2CFF05;
+  -webkit-text-stroke: 1.2px #ffffff;
+  paint-order: stroke fill;
   text-shadow: none;
 }
 
