@@ -76,9 +76,9 @@ textarea:focus-visible {
 }
 
 .logo {
-  font-size: 34px;
+  font-size: 46px;
   font-weight: 800;
-  letter-spacing: -2.5px;
+  letter-spacing: -4px;
   line-height: 1;
   font-family: 'Manrope', sans-serif;
   text-decoration: none;
@@ -86,25 +86,14 @@ textarea:focus-visible {
   -webkit-text-fill-color: #2CFF05;
   -webkit-text-stroke: 1px #ffffff;
   paint-order: stroke fill;
-  background: #100E09;
-  border-radius: 9px;
-  padding: 6px 14px 7px 12px;
-  display: inline-flex;
-  align-items: baseline;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logo:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(44, 255, 5, 0.3);
+  transition: opacity 0.3s ease;
 }
 
 .logo span {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0;
   vertical-align: top;
-  margin: 0 0 0 4px;
+  margin: 6px 0 0 4px;
   display: inline-block;
   color: #2CFF05 !important;
   -webkit-text-fill-color: #2CFF05;
@@ -3187,10 +3176,8 @@ dialog p {
     padding: 18px 6%;
   }
   .logo {
-    font-size: 26px;
-    letter-spacing: -2px;
-    padding: 5px 11px 6px 9px;
-    border-radius: 7px;
+    font-size: 38px;
+    letter-spacing: -3px;
     -webkit-text-stroke: 0.8px #ffffff;
   }
   .menu-toggle {

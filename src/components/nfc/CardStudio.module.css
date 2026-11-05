@@ -11,32 +11,21 @@
   border-bottom: 1px solid #dcded4;
 }
 .logo {
-  font-size: 34px;
+  font-size: 46px;
   font-weight: 800;
-  letter-spacing: -2.5px;
+  letter-spacing: -4px;
   line-height: 1;
   color: #2CFF05 !important;
   -webkit-text-fill-color: #2CFF05;
   -webkit-text-stroke: 1px #ffffff;
   paint-order: stroke fill;
   text-decoration: none;
-  background: #100E09;
-  border-radius: 9px;
-  padding: 6px 14px 7px 12px;
-  display: inline-flex;
-  align-items: baseline;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.logo:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(44, 255, 5, 0.3);
 }
 .logo span {
-  font-size: 10px;
+  font-size: 11px;
   vertical-align: top;
   letter-spacing: 0;
-  margin-left: 4px;
+  margin-left: 5px;
   color: #2CFF05 !important;
   -webkit-text-fill-color: #2CFF05;
   -webkit-text-stroke: 0.4px #ffffff;
@@ -918,10 +907,8 @@
     gap: 15px;
   }
   .logo {
-    font-size: 26px;
-    letter-spacing: -2px;
-    padding: 5px 11px 6px 9px;
-    border-radius: 7px;
+    font-size: 38px;
+    letter-spacing: -3px;
     -webkit-text-stroke: 0.8px #ffffff;
   }
   .productName {
