@@ -133,9 +133,9 @@ textarea:focus-visible {
   display: none;
 }
 
-/* 1. CLOSED HERO / PRE-OPEN STATE: Bone text on dark skyline */
+/* 1. CLOSED HERO / PRE-OPEN STATE: Obsidian text on Premium White (#F5F4EB) */
 .header.is-hero-closed:not(.is-scrolled) {
-  color: var(--portal-bone);
+  color: var(--portal-bg);
 }
 .header.is-hero-closed:not(.is-scrolled) .logo {
   color: #2CFF05 !important;
@@ -144,20 +144,20 @@ textarea:focus-visible {
   color: #2CFF05 !important;
 }
 .header.is-hero-closed:not(.is-scrolled) .wordmark {
-  color: rgba(237, 231, 220, 0.72);
-  border-left: 1px solid rgba(237, 231, 220, 0.2);
+  color: rgba(10, 12, 14, 0.65);
+  border-left: 1px solid rgba(10, 12, 14, 0.2);
 }
 .header.is-hero-closed:not(.is-scrolled) nav a {
-  color: var(--portal-bone);
+  color: var(--portal-bg);
   transition: color 0.2s ease;
 }
 .header.is-hero-closed:not(.is-scrolled) nav a:hover {
   color: #2CFF05 !important;
 }
 .header.is-hero-closed:not(.is-scrolled) .nav-cta {
-  border: 1px solid rgba(237, 231, 220, 0.32);
-  color: var(--portal-bone);
-  background: rgba(237, 231, 220, 0.05);
+  border: 1px solid rgba(10, 12, 14, 0.28);
+  color: var(--portal-bg);
+  background: transparent;
   transition: all 0.25s ease;
 }
 .header.is-hero-closed:not(.is-scrolled) .nav-cta:hover {
@@ -167,8 +167,8 @@ textarea:focus-visible {
   box-shadow: 0 4px 18px rgba(44, 255, 5, 0.25);
 }
 .header.is-hero-closed:not(.is-scrolled) .menu-toggle {
-  color: var(--portal-bone);
-  border: 1px solid rgba(237, 231, 220, 0.3);
+  color: var(--portal-bg);
+  border: 1px solid rgba(10, 12, 14, 0.25);
   transition: all 0.25s ease;
 }
 .header.is-hero-closed:not(.is-scrolled) .menu-toggle:hover {
@@ -307,7 +307,7 @@ textarea:focus-visible {
   justify-content: center;
   pointer-events: auto;
   perspective: 1200px;
-  background: var(--portal-bg);
+  background: radial-gradient(ellipse 85% 75% at 50% 48%, #FFFFFF 0%, #F5F4EB 60%, #EBE6D8 100%);
   transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1), filter 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -318,13 +318,9 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
-/* Faded Cinematic Skyline Artwork for Pre-Open Hero Section */
+/* Faded Cinematic Skyline Artwork for Pre-Open Hero Section (Disabled for pure luxury white background) */
 .portal-gateway-art {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .portal-gateway-art-img {
@@ -373,7 +369,7 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(237, 231, 220, 0.05) 20%, rgba(44, 255, 5, 0.08) 50%, rgba(237, 231, 220, 0.05) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(10, 12, 14, 0.04) 20%, rgba(44, 255, 5, 0.18) 50%, rgba(10, 12, 14, 0.04) 80%, transparent 100%);
 }
 
 .track-h2 {
@@ -381,7 +377,7 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(44, 255, 5, 0.06) 25%, rgba(237, 231, 220, 0.06) 60%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(44, 255, 5, 0.14) 25%, rgba(10, 12, 14, 0.04) 60%, transparent 100%);
 }
 
 .track-v1 {
@@ -389,7 +385,7 @@ textarea:focus-visible {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(180deg, transparent 0%, rgba(237, 231, 220, 0.04) 25%, rgba(44, 255, 5, 0.06) 70%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 12, 14, 0.04) 25%, rgba(44, 255, 5, 0.16) 70%, transparent 100%);
 }
 
 .track-v2 {
@@ -397,7 +393,7 @@ textarea:focus-visible {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(180deg, transparent 0%, rgba(44, 255, 5, 0.05) 30%, rgba(237, 231, 220, 0.04) 75%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(44, 255, 5, 0.14) 30%, rgba(10, 12, 14, 0.04) 75%, transparent 100%);
 }
 
 .signal-pulse {
@@ -533,22 +529,14 @@ textarea:focus-visible {
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: rgba(237, 231, 220, 0.35);
+  color: rgba(10, 12, 14, 0.45);
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 /* Two small glowing accent dots at the centre */
 .hero-accent-dots {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 .accent-dot {
@@ -650,10 +638,11 @@ textarea:focus-visible {
   cursor: pointer;
   user-select: none;
   background: #100E09 !important;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.95),
-    inset 0 1px 1px rgba(255, 255, 255, 0.06);
+    0 32px 75px rgba(16, 14, 9, 0.32),
+    0 12px 28px rgba(16, 14, 9, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
   padding: 24px 28px;
   display: flex;
   flex-direction: column;
@@ -677,10 +666,11 @@ textarea:focus-visible {
 
 .portal-card-gateway:hover .hero-business-card {
   animation-play-state: paused;
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.25);
   box-shadow:
-    0 38px 80px rgba(0, 0, 0, 0.98),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    0 42px 95px rgba(16, 14, 9, 0.4),
+    0 16px 36px rgba(16, 14, 9, 0.26),
+    inset 0 1px 1px rgba(255, 255, 255, 0.14);
 }
 
 .portal-card-gateway.is-tapped .hero-business-card {
