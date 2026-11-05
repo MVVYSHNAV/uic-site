@@ -24,7 +24,7 @@ export interface Project {
   badge: string;
   year: string;
   accent: string;
-  mockupType: 'pixpil' | 'dafy' | 'luvcutlet' | 'forma' | 'connect' | 'flow';
+  mockupType: 'pixpil' | 'dafy' | 'ankithmadhav' | 'luvcutlet' | 'forma' | 'connect' | 'flow';
 }
 
 export const projects: Project[] = [
@@ -95,6 +95,40 @@ export const projects: Project[] = [
     year: '2024',
     accent: '#fdb813',
     mockupType: 'dafy',
+  },
+  {
+    id: 'ankithmadhav',
+    kind: 'client',
+    client: 'Ankith Madhav',
+    title: 'Ankith Madhav — The Panache Factor',
+    subtitle: 'Official Flagship Actor & Talent Portfolio',
+    category: 'TALENT PLATFORM / DIGITAL PORTFOLIO',
+    tags: 'Filmography / Talent Branding / Showreel Showcase / High-Performance Web',
+    coverImage: '/images/projects/ankithmadhav-cover.jpg',
+    description:
+      'Official flagship portfolio and interactive talent platform designed and engineered for Ankith Madhav — acclaimed Indian actor, model, and voice artist known for standout roles in Rocketry: The Nambi Effect, Kannur Squad, and Amazon Prime’s Poacher.',
+    challenge:
+      'Ankith required an international-grade digital presence to showcase his multi-lingual body of work across Malayalam, Tamil, Hindi, and English cinema, seamlessly indexing feature film showreels, high-fashion editorial campaigns, and industry credentials.',
+    solution:
+      'Engineered a cinematic, editorial digital stage with dynamic showreel embeds, curated press archives, high-resolution campaign galleries, and an interactive brand platform that reflects "The Panache Factor" for global casting directors and producers.',
+    deliverables: [
+      'Flagship Talent Portfolio Website',
+      'Cinematic Filmography & Showreel Suite',
+      'Commercial Campaigns & Ad Index (500+ Projects)',
+      'High-Fashion Editorial Gallery',
+      'Multi-Industry Press & Media Kit',
+    ],
+    metrics: [
+      { value: '500+', label: 'Commercial Campaigns' },
+      { value: '4 Languages', label: 'ML / TM / HI / EN' },
+      { value: 'Global', label: 'Amazon Prime • Blockbusters' },
+    ],
+    externalUrl: 'https://www.ankithmadhav.com/',
+    externalLabel: 'Visit Live Website',
+    badge: 'LIVE CLIENT WEBSITE',
+    year: '2025',
+    accent: '#d9ff65',
+    mockupType: 'ankithmadhav',
   },
   {
     id: 'luvcutlet',
