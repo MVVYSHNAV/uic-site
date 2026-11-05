@@ -83,8 +83,10 @@ textarea:focus-visible {
   font-family: 'Manrope', sans-serif;
   text-decoration: none;
   color: #2CFF05 !important;
+  -webkit-text-fill-color: #2CFF05;
+  -webkit-text-stroke: 1px #ffffff;
+  paint-order: stroke fill;
   background: #100E09;
-  border: 1.5px solid #2CFF05;
   border-radius: 9px;
   padding: 6px 14px 7px 12px;
   display: inline-flex;
@@ -96,7 +98,6 @@ textarea:focus-visible {
 .logo:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(44, 255, 5, 0.3);
-  border-color: #2CFF05;
 }
 
 .logo span {
@@ -106,6 +107,8 @@ textarea:focus-visible {
   margin: 0 0 0 4px;
   display: inline-block;
   color: #2CFF05 !important;
+  -webkit-text-fill-color: #2CFF05;
+  -webkit-text-stroke: 0.4px #ffffff;
 }
 
 .wordmark {
@@ -3188,6 +3191,7 @@ dialog p {
     letter-spacing: -2px;
     padding: 5px 11px 6px 9px;
     border-radius: 7px;
+    -webkit-text-stroke: 0.8px #ffffff;
   }
   .menu-toggle {
     display: flex;
