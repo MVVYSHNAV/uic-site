@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { HairlineBridge } from '@/components/hairline/HairlineBridge';
 
 export function CinematicHero() {
   const [isOpened, setIsOpened] = useState(false);
@@ -148,6 +149,9 @@ export function CinematicHero() {
           <div className="portal-gateway-art-wash" />
           <div className="portal-gateway-art-vignette" />
         </div>
+
+        {/* Hairline Isometric Transaction Bridge Figure in Background */}
+        <HairlineBridge />
 
         {/* Minimal Atmospheric Passing Signals */}
         <div className="portal-signal-field" aria-hidden="true">
