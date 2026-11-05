@@ -797,7 +797,7 @@ textarea:focus-visible {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
-  color: #2CFF05;
+  color: #F5F4EB !important;
   text-shadow: none;
 }
 

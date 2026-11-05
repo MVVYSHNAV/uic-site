@@ -229,7 +229,7 @@ export function CinematicHero() {
           {/* Card Header: Brand Monogram + NFC */}
           <div className="card-top-row">
             <div className="card-brand-lockup">
-              <span className="card-brand-text">uic</span>
+              <span className="card-brand-text">Uic</span>
               <span className="card-brand-reg">®</span>
             </div>
 
